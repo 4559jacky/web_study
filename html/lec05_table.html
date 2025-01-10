@@ -3,9 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>테이블</title>
 </head>
 <body>
+    <h1>과제</h1>
+    <h2>1번</h2>
+    <ul>
+        <li>아래 이미지를 HTML 태그로 작성하여 구성하세요.</li>
+        <h2>행 통합과 열 통합 심화(1)</h2>
+        <table border="1">
+            <tr>
+                <td>가</td>
+                <td>나</td>
+                <td>다</td>
+                <td rowspan="4">라</td>
+            </tr>
+            <tr>
+                <td>마</td>
+                <td colspan="2" rowspan="3">바</td>
+                <!-- <td>다</td> -->
+                <!-- <td>라</td> -->
+            </tr>
+            <tr>
+                <td>사</td>
+                <!-- <td>나</td> -->
+                <!-- <td>다</td> -->
+                <!-- <td>라</td> -->
+            </tr>
+            <tr>
+                <td>아</td>
+                <!-- <td>나</td> -->
+                <!-- <td>다</td> -->
+                <!-- <td>라</td> -->
+            </tr>
+            <tr>
+                <td colspan="2">자</td>
+                <!-- <td>나</td> -->
+                <td colspan="2">차</td>
+                <!-- <td>라</td> -->
+            </tr>
+            <tr>
+                <td colspan="4">카</td>
+                <!-- <td>나</td>
+                <td>다</td>
+                <td>라</td> -->
+            </tr>
+        </table>
+    </ul>
+    <br>
+    <h2>2번</h2>
+    <ul>
+        <li>아래 이미지를 HTML 태그로 작성하여 구성하세요.</li>
+        <h2>행 통합과 열 통합 심화(2)</h2>
+        <table border="1">
+            <tr>
+                <td rowspan="5">1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <td rowspan="3">10</td>
+                <td>11</td>
+                <td>12</td>
+                <td rowspan="2">13</td>
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <!-- <td>2</td> -->
+                <td>14</td>
+                <td>15</td>
+                <!-- <td>5</td> -->
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <!-- <td>2</td> -->
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td colspan="5">19</td>
+                <!-- <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td> -->
+            </tr>
+        </table>
+    </ul>
+    <br>
+    <h2>3번</h2>
+    <ul>
+        <li>아래 이미지를 HTML 태그로 작성하여 구성하세요.</li>
+        <h2>행 통합과 열 통합 심화(3)</h2>
+        <table border="1">
+            <tr>
+                <td colspan="4">1</td>
+                <td rowspan="7">2</td>
+            </tr>
+            <tr>
+                <td rowspan="5">3</td>
+                <td rowspan="4">4</td>
+                <td colspan="2">5</td>
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <td>6</td>
+                <td rowspan="4">7</td>
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <!-- <td>2</td> -->
+                <td>8</td>
+                <!-- <td>5</td> -->
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <!-- <td>2</td> -->
+                <td>9</td>
+            </tr>
+            <tr>
+                <td colspan="2">10</td>
+            </tr>
+            <tr>
+                <td colspan="4">11</td>
+                <!-- <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td> -->
+            </tr>
+        </table>
+    </ul>
+    <br>
+    <h2>4번</h2>
+    <ul>
+        <li>아래 이미지를 HTML 태그로 작성하여 구성하세요.</li>
+        <h2>종합 문제</h2>
+        <table border="1">
+            <tr>
+                <th colspan="5">하수정 보석 컬렉션</th>
+            </tr>
+            <tr>
+                <th rowspan="5">제품 리스트</th>
+                <th>코드</th>
+                <th>분류</th>
+                <th>가격</th>
+                <th>구매가능 개수</th>
+            </tr>
+            <tr>
+                <td>01-468</td>
+                <td>가을</td>
+                <td>200,000원</td>
+                <td>1068</td>
+            </tr>
+            <tr>
+                <td>01-469</td>
+                <td>가을</td>
+                <td>150,000원</td>
+                <td>1700</td>
+            </tr>
+            <tr>
+                <td>01-470</td>
+                <td>여름</td>
+                <td>950,000원</td>
+                <td>2500</td>
+            </tr>
+            <tr>
+                <td>01-471</td>
+                <td>봄봄</td>
+                <td>120,000원</td>
+                <td>3200</td>
+            </tr>
+            <tr>
+                <th colspan="3">총합</th>
+                <td>1,420,000원</td>
+                <td>8468</td>
+            </tr>
+        </table>
+    </ul>
+    <hr>
+    <h1>연습</h1>
+    <h2>행 통합과 열 통합</h2>
+    <div>
+        <table border="1">
+            <caption>행 통합</caption>
+            <tr>
+                <th>1행</td>
+                <td colspan="2">1행 1열</td>
+                <!-- <td>3행행</td> -->
+            </tr>
+            <tr>
+                <th rowspan="2">2행</td>
+                <td colspan="2">2행 2열</td>
+                <!-- <td>내용6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>내용7</td> -->
+                <td colspan="2">3행 2열</td>
+                <!-- <td>내용9</td> -->
+            </tr>
+        </table>
+        <br>
+        <table border="1">
+            <caption>열 통합</caption>
+            <tr>
+                <th colspan="2">1열</td>
+                <!-- <td>2행</td> -->
+                <th colspan="4">2열</td>
+                <!-- <td>1행</td>
+                <td >1행</td>
+                <td>3행</td> -->
+            </tr>
+            <tr>
+                <td colspan="2">2행 1열</td>
+                <!-- <td >2행</td> -->
+                <td colspan="2">2행 2열</td>
+                <!-- <td>1행</td> -->
+                <td colspan="2">2행 3열</td>
+                <!-- <td>3행</td> -->
+            </tr>
+        </table>
+    </div>
+    <h2>
+        종합문제
+    </h2>
+    <div>
+        <table border="1">
+            <caption>출장비용 보고서</caption>
+            <colgroup>
+                <col style="background-color: skyblue">
+                <col style="background-color: skyblue;">
+                <col style="background-color: pink;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>대분류</th>
+                    <th>중분류</th>
+                    <th>금액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>교통비</td>
+                    <td>ktx</td>
+                    <td>100000</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">식비</td>
+                    <td>점심</td>
+                    <td>20000</td>
+                </tr>
+                <tr>
+                    <!-- <td>교통비</td> -->
+                    <td>저녁</td>
+                    <td>200000</td>
+                </tr>
+                <tr>
+                    <td>숙박비</td>
+                    <td>모텔</td>
+                    <td>50000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">총합계</td>
+                    <td>1900000</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <hr>
+    <h1>학습</h1>
+    <h2>테이블이란?</h2>
+    
+    <table border="1">
+        <caption>표1. <br>우리반 성적</caption>
+        <tr>
+            <th>이름</th>
+            <th>점수</th>
+        </tr>
+        <tr>
+            <td>김철수</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>이영희</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>20</td>
+        </tr>
+    </table>
+    <h2>테이블 병합</h2>
+    <table border="1">
+        <tr>
+            <td rowspan="3">내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <!-- <td>내용4</td> -->
+            <td colspan="2">내용5</td>
+            <!-- <td>내용6</td> -->
+        </tr>
+        <tr>
+            <!-- <td>내용7</td> -->
+            <td>내용8</td>
+            <td>내용9</td>
+        </tr>
+    </table>
+    <h2>테이블 구조</h2>
+    <table border="1">
+        <colgroup>
+            <col width="30%" style="background-color: sandybrown;">
+            <col width="70%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>김가남</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김나남</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>김다담</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>김라람</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>김마맘</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>김바밤</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>인원수</td>
+                <td>6명</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br><br>
+    <h2>div</h2>
+    <div>콘텐츠1</div>
+    <div>콘텐츠2</div>
+    <span>콘텐츠3</span>
+    <span>콘텐츠4</span>
+    <div>
+        <span>이렇게도</span>
+        <span style="background-color: rebeccapurple;">쓸 수</span>
+        <span>있나요?</span>
+    </div>
+    <div>
+        네~ 쓸 수 있어용~!@@
+    </div>
+
+
+
+
+    <br><br><br><br><br><br><br>
+
+    <!-- 병합 -->
+    <!-- <td>태그의 속성
+    rowspan은 지정한 수만큼의 행 병합
+    colspan은 지정한 수만큼의 열 병합 -->
     
 </body>
 </html>

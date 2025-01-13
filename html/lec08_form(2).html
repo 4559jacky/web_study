@@ -3,9 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>폼태그(2)</title>
 </head>
 <body>
-    
+    <h1>연습</h1>
+    <h2>피자 주문하기</h2>
+    <form>
+        <fieldset>
+            <legend>고객정보</legend>
+            <label for="userName">고객명 : </label>
+            <input type="text" required><br>
+            <label for="userName">전화번호 : </label>
+            <input type="text" required><br>
+            <label for="userName">E-mail : </label>
+            <input type="email" required>
+        </fieldset>
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <input type="radio" id="small" value="1" name="size">
+            <label for="small">Small</label><br>
+            <input type="radio" id="medium" value="2" name="size">
+            <label for="medium">Medium</label><br>
+            <input type="radio" id="large" value="3" name="size">
+            <label for="large">Large</label>
+        </fieldset>
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" id="shrimp" value="1">
+            <label for="shrimp">새우</label><br>
+            <input type="checkbox" id="sweet_potato" value="1">
+            <label for="sweet_potato">고구마</label><br>
+            <input type="checkbox" id="potato" value="1">
+            <label for="potato">감자</label><br>
+            <input type="checkbox" id="pineapple" value="1">
+            <label for="pineapple">파인애플</label>
+        </fieldset><br>
+        <label for="time2">희망 배송 시간 : </label><input type="time" id="time2"><br><br>
+        <button onclick="alter('주문완료');">주문하기</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <h2>color : 색상을 선택받을 때</h2>
+    <b>color</b> : <input type="color" id="head" name="head" value="#e66465">
+    <br>
+    <br>
+    <h2>number/range</h2>
+    <b>number</b> : <input type="number" min="3" max="213" step="1">
+    <br>
+    <b>ranger</b> : <input type="range" min="3" max="213" step="1">
+    <br>
+    <br>
+    <h2>textarea</h2>
+    <textarea cols="20" rows=3>
+        
+    </textarea>
+    <br>
+    <br>
+    <h2>날짜</h2>
+    <h3>종류</h3>
+    <ul>
+        <li>date : 년, 월, 일 선택 양식 생성</li>
+        <li>month : 년, 월 선택 양식 생성</li>
+        <li>time : 시간 선택 양식 생성</li>
+    </ul>
+    <b>date</b> : <input type="date" value="2025-01-08"
+    min="2025-01-01" max="2025-01-13">
+    <br>
+    <b>month</b> : <input type="month" value="2024-09"
+    min="2000-01-01" max="2025-01-13">
+    <br>
+    <b>time</b> : <input type="time" value="16:10">
+    <br>
+    <br>
+    <h2>checkbox : name이 같은 여러개 값 선택</h2>
+    <b>checkbox</b> : <input type="checkbox" value="1" id="jja"
+    name="lunch">
+    <label for="jja">짜장면</label>
+    <input type="checkbox" value="2" id="bok"
+    name="lunch">
+    <label for="bok">볶음밥</label>
+    <br>
+    <br>
+    <h2>radio : name이 같은 것중에 하나만 선택</h2>
+    <b>radio</b> : <input type="radio" value="1"
+    id="seoul" name="addr">
+    <label for="seoul">서울</label>
+    <input type="radio" value="2"
+    id="daejeon" name="addr">
+    <label for="daejeon">대전</label>
+    <input type="radio" value="3"
+    id="daegu" name="addr">
+    <label for="daegu">대구</label>
+    <input type="radio" value="4"
+    id="busan" name="addr">
+    <label for="busan">부산</label>
+    <br>
+    <br>
+    <h2>select</h2>
+    <select name="user_select" id="user_select">
+        <option value="0" selected>선택하기</option>
+        <option value="1">앵무새</option>
+        <option value="2">앵사원</option>
+        <option value="3">앵부장</option>
+        <option value="4">앵사장</option>
+    </select>
+    <br>
+    <br>
+    <h2>progress</h2>
+    <b>진행중</b><br>
+    <progress max="100" value="7"></progress>
+    <progress></progress>
+    <br>
+    <br>
+    <h2>앵</h2>
+    <form method="get" name="testFrm" action="#">
+        <input type="text" required>
+        <button type="button"
+        onclick="alert('안녕');">버튼</button>
+        <button type="submit">제출</button>
+        <button type="reset">테스트</button>
+        <button>button은 type이 submit이 default ㄷㄷ</button>
+    </form>
+    <br>
+    <br>
+    <br>
 </body>
 </html>

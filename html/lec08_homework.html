@@ -6,6 +6,163 @@
     <title>Homework</title>
 </head>
 <body>
+    <h1>과제</h1>
+    <h2>1. 납품대장</h2>
+    <ul>
+        <li>아래 이미지를 HTML 태그로 작성하세요.</li>
+        <li>납품 등급은 1~10까지 있고 기본값은 5로 설정합니다</li>
+    </ul>
+    <form>
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <label for="name">1. 납품자명 : </label>
+            <input type="text" placeholder="name"><br>
+            <label for="email">2. email : </label>
+            <input type="email" placeholder="hkd@naver.com">
+        </fieldset>
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <li>
+                    <label for="p_name">상품명 : </label>
+                    <input type="text" id="p_name">
+                </li>
+                <li>
+                    <lable for="amount">납품수량 : </lable>
+                    <input type="text" id="amount"
+                    placeholder="최소 100">
+                </li>
+                <li>
+                    <label for="level">납품등급 : </label>
+                    <input type="range" min="1" max="10"
+                    value="5" id="level">
+                </li>
+                <li>
+                    <label for="guitar">기타사항 : </label>
+                    <textarea></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <button>sned message</button>
+    </form>
+    <h2>2. 회원가입</h2>
+    <ul>
+        <li>아래 이미지를 HTML 태그로 작성하세요.</li>
+    </ul>
+    <form>
+        <fieldset>
+            <table>
+                <tr>
+                    <th><label for="user_id">ID</label></th>
+                    <td><input type="text" id="user_id"
+                        placeholder="아이디 10글자 이내"></td>
+                    <td><input type="button" value="중복확인"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_pw">비밀번호</label></th>
+                    <th><input type="password" id="user_pw"
+                    placeholder="영문, 숫자 포함 8자리 이상"></th>
+                </tr>
+                <tr>
+                    <th><label for="check_pw">비밀번호 확인</label></th>
+                    <td><input type="password" id="check_pw"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_email">Email</label></th>
+                    <td><input type="email" id="user_email"></td>
+                    <td>
+                        <select>
+                            <option value="1">직접입력</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>추가 정보</legend>
+            <label for="user_pro">프로필 사진 : </label>
+            <input type="file" id="user_pro"><br><br>
+            성별 : <input type="radio" value="1" id="male" name="sex">
+            <label for="male">남자</label>
+            <input type="radio" value="2" id="female" name="sex">
+            <label for="female">여자</label><br><br>
+            생년월일 : <input type="date"><br><br>
+            취미<br>
+            <input type="checkbox" value="1" id="baseball">
+            <label for="baseball">야구</label>
+            <input type="checkbox" value="2" id="basketball">
+            <label for="basketball">농구</label>
+            <input type="checkbox" value="3" id="soccer">
+            <label for="soccer">축구</label><br>
+            <input type="checkbox" value="4" id="study">
+            <label for="study">공부</label>
+            <input type="checkbox" value="5" id="listen_music">
+            <label for="listen_music">음악감상</label><br>
+            <input type="checkbox" value="5" id="guitar2">
+            <label for="guitar2">기타 : </label>
+            <input type="text"><br><br>
+            자기소개<br>
+            <textarea cols="50" rows="5"></textarea>
+        </fieldset><br>
+        <button>회원가입</button>
+        <button type="reset">다시입력</button>
+        <button type="">이전으로</button>
+    </form>
+    <h2>3. 백엔드 개발자 지원서</h2>
+    <ul>
+        <li>
+            아래 이미지를 HTML 태그로 작성하세요.
+        </li>
+    </ul>
+    <form>
+        <h3>백엔드 개발자 지원서</h3>
+        <p>Java, Spring, DataBase에 대한 기술적 이해와 경험이 있는 분을<br>
+        찾습니다.</p>
+        <hr>
+        <table>
+            <tr>
+                <th>개인정보</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="2"></td>
+                <td><label for="name">이름</label></td>
+                <td><input type="text" id="name"
+                    placeholder="공백없이 입력하세요."></td>
+            </tr>
+            <tr>
+                <td><label for="phone">연락처</label></td>
+                <td><input type="text" id="phone"></td>
+            </tr>
+            <tr>
+                <th>지원 분야</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3"></td>
+                <td><input type="radio" value="1" id="back" name="kind"></td>
+                <td><label for="back">백엔드 개발</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" value="2" id="server" name="kind"></td>
+                <td><label for="server">서버 개발</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" value="3" id="equi" name="kind"></td>
+                <td><label for="equi">개발 환경 개선</label></td>
+            </tr>
+            <tr>
+                <th>지원동기</th>
+            </tr>
+        </table>
+        <textarea cols="42" rows="5" placeholder="지원 동기를 간략히 써주세요"></textarea>
+        <br>
+        <button>접수하기</button>
+        <button type="reset">다시쓰기</button>
+    </form>
+    <br><br><br><br><br><br><br><br>
     
 </body>
 </html>

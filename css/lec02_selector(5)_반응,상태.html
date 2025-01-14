@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응, 상태 선택자</title>
+    <style>
+        #p1:active{
+            background-color: mediumseagreen;
+        }
+        #p2{color:yellow;}
+        #p2:hover{
+            color:hotpink;
+        }
+        #button1:hover{
+            background-color: aquamarine;
+        }
+        #button2:active{
+            background-color: crimson;
+        }
+        input[name="user_id"]:focus{
+            background-color: rgb(179, 179, 235);
+        }
+        input[type="text"]:disabled{
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1>연습문제</h1>
+    <h2>문제</h2>
+    <button id="button1">버튼1</button>
+    <button id="button2">버튼2</button>
+    <br><br>
+    <hr>
+    <h2>반응 선택자</h2>
+    <div id="reaction">
+        <p id="p1">클릭 -> 배경색</p>
+        <p id="p2">마우스 올리면 -> 글자색</p>
+    </div>
+    <h2>상태 선택자</h2>
+    <div id="condition">
+        <input type="text" name="user_id">
+        <input type="text" name="user_name" disabled>
+    </div>
+    <br><br><br><br>
+
+</body>
+</html>

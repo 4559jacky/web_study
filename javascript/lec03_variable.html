@@ -6,8 +6,149 @@
     <title>변수</title>
 </head>
 <body>
+    <h1>연습하기</h1>
+    <h2>두 숫자의 합</h2>
+    <label for="num1">첫번째 수 : </label>
+    <input type="number" id="num1"><br>
+    <label for="num2">두번째 수 : </label>
+    <input type="number" id="num2">
+    <input type="button" value="더하기"
+    onclick="addNum();">
     <script>
+        function addNum() {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+
+            console.log(typeof(num1), typeof(num2));
+
+            let num3 = Number(num1);
+            let num4 = Number(num2);
+            console.log(typeof(num3), typeof(num4));
+
+            alert('두 수의 합 : '+(num3+num4));
+        }
+    </script>
+    <br><br>
+    <hr>
+
+    <input type="button" value="지역 변수 부르기"
+    onclick="localFunc();">
+    <script>
+        // 1. 변수 선언
         var test;
+        // 2. 변수 할당
+        test = 'JavaScript';
+        var test2 = 'JS';
+        // 3. 지역 vs 전역
+        function localFunc(){
+            var localVar = '나는 지역변수야~';
+            console.log(localVar);
+        }
+        // console.log(localVar);
+        console.log(globalVar);
+        var globalVar = 'I am global';
+        function globalTest(){
+            console.log(globalVar);
+        }
+        // console.log(globalVar);
+        for(var i=0; i<4; i++) {
+            console.log("안쪽!!"+i);
+        }
+        console.log("바깥쪽 ~"+i);
+
+    </script>
+    <input type="button" value="전역 변수 부르기"
+    onclick="globalTest();">
+    <script>
+        // 4. let과 const
+        if(true) {
+            let x = 20;
+            console.log(x);
+        }
+        // let -> 재할당 가능
+        let y = 30;
+        // console.log(x);
+        // const -> 재할당 불가
+        const pi = 3.14;
+        console.log(pi);
+        // pi = 3.141592653578;
+    </script>
+    <input type="button" value="자료형 확인"
+    onclick="checkType();">
+    <script>
+        function checkType() {
+            console.log(typeof(insa));
+            console.log(typeof(name));
+            console.log(typeof(age));
+            console.log(typeof(price))
+            console.log(typeof(isAdmin));
+            console.log(typeof(person));
+            console.log(typeof(add1));
+            console.log(typeof(sum));
+        }
+        // 5. 자료형
+        let insa = 'Hi';
+        let name = "김철수";
+        let age = 100;
+        let price = 19.99;
+        let isAdmin = false;
+        let person = {
+            name : '홍길동',
+            age : 30,
+            sayHi : function(){
+                console.log('안녕하세염');
+            }
+        };
+        function add1(a,b) {
+            return a+b;
+        }
+        let sum = add1(5,3);
+        console.log(sum);
+    </script>
+    <script>
+        // 6. falsy : 0, "", null, undefined
+        if(!NaN){
+            console.log('O');
+        } else {
+            console.log('X');
+        }
+    </script>
+    <h1>형변환</h1>
+    <input type="button" value="문자+숫자"
+    onclick="strPlusNum();">
+    <script>
+        function strPlusNum(){
+            let num1 = 30;
+            let num2 = '30';
+            console.log(typeof(num1),typeof(num2));
+            if(num1 == num2) {
+                console.log('OOOOOOOO');
+            }
+            console.log(num1+num2);
+            console.log(num1*num2);
+            console.log(num1*'test');
+            console.log(num1-num2);
+            console.log(num1/num2);
+            console.log(num1%num2);
+        }
+    </script>
+    <h1>강제 형변환</h1>
+    <label for="numInput">숫자</label>
+    <input type="number" id="numInput">
+    <input type="button" value="숫자->문자"
+    onclick="convertNumToStr();">
+    <script>
+        function convertNumToStr(){
+            let numVal = document.getElementById('numInput').value;
+            console.log(numVal,typeof(numVal));
+            // number 타입 value는 string이다!!
+            let numVal2 = Number(numVal);
+            console.log(numVal2, typeof(numVal2));
+
+            let strVal = numVal2.toString();
+            console.log(typeof(strVal));
+
+        }
     </script>
 </body>
 </html>

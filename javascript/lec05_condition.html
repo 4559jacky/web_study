@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>연습문제</h1>
-    <h2>로그인</h2>
+    <h1>로그인</h1>
     <form>
         <label for="user_id">아이디 : </label>
         <input type="text" id="user_id"><br>
@@ -24,6 +24,78 @@
             } else {
                 alert('잘못된 아이디 또는 비밀번호입니다람쥐.');
             }
+        }
+    </script>
+    <h1>
+        메뉴고르기
+    </h1>
+    <select onchange="selectMenu();" id="menu">
+        <option value="0">메뉴선택</option>
+        <option value="1">돼지두루치기</option>
+        <option value="2">마라샹궈</option>
+        <option value="3">참치주먹밥</option>
+    </select>
+    <script>
+        function selectMenu(){
+            let menu = Number(document.getElementById('menu').value);
+            switch(menu) {
+                case 1 : alert('돼지두루치기 : 20000원'); break;
+                case 2 : alert('마라샹궈 : 17000원'); break;
+                case 3 : alert('참치주먹밥 : 3500원'); break;
+            }
+        }
+    </script>
+    <h1>배경추가</h1>
+    <button type="button" onclick="addBack();">배경추가</button>
+    <script>
+        function addBack(){
+            let arr = document.getElementsByTagName('h1');
+            for(let i=0; i<arr.length; i++) {
+                if((i+1)%2!=0) {
+                    arr[i].style.backgroundColor = 'lightpink';
+                } else {
+                    arr[i].style.backgroundColor = 'lightblue';
+                }
+            }
+        }
+    </script>
+    <h1>면도기 공장</h1>
+    <label for="prod_amount">생산 개수 : </label>
+    <input type="number" id="prod_amount">
+    <input type="button" value="생산" onclick="createProd();">
+    <div id="imagePlace"></div>
+    <script>
+        function createProd(){
+            document.getElementById('imagePlace').innerHTML = '';
+            let num = Number(document.getElementById('prod_amount').value);
+        console.log(num);
+        for(let i=0; i<num; i++) {
+            document.getElementById('imagePlace').innerHTML += 
+            `<img src="../resources/shaving.png">`;
+            for(let j=0; j<2; j++) {
+                document.getElementById('imagePlace').innerHTML += 
+            `<img src="../resources/knife.png">`;
+            // break;
+        }
+        document.getElementById('imagePlace').innerHTML += 
+            `<br>`
+        }
+    }
+    </script>
+    <h1>10보다 작은 숫자</h1>
+    <input type="number" id="num_a">
+    <input type="button" value="출력하기" onclick="print();">
+    <div id="result_d"></div>
+    <script>
+        function print(){
+            document.getElementById('result_d').innerHTML = '';
+            let num = Number(document.getElementById('num_a').value);
+            do {
+                document.getElementById('result_d').innerHTML +=
+                `${num}<br>`;
+                num++;
+            }
+            while(num<=10);
         }
     </script>
 
@@ -45,6 +117,100 @@
             }
         }
     </script>
-    
+    <h1>switch문</h1>
+    <input type="button" value="switch확인" onclick="switchTest();">
+    <script>
+        function switchTest(){
+            let num = Number(document.querySelector('#ifNum').value);
+            switch(num) {
+                case 1 : alert('1이네요~'); break;
+                case 2 : alert('2네요!!'); break;
+                default : alert('1도 2도 아니네요.');
+            }
+        }
+    </script>
+    <h1>for문</h1>
+    <input type="button" value='반복하기' onclick="loopFunc();">
+    <div id="resultDiv"></div>
+    <script>
+        function loopFunc(){
+            document.getElementById('resultDiv').innerHTML = '';
+            for(let i=0; i<10; i++) {
+                document.getElementById('resultDiv').innerHTML += '<h6>안녕하세요</h6>';
+            }
+        }
+    </script>
+    <h1>중첩 반복문</h1>
+    <button onclick="enterClass();">교실 입장</button>
+    <p>총 2개의 교실, 하나의 교실에 3명의 학생 입장</p>
+    <script>
+        function enterClass(){
+            for(let i=0; i<2; i++) {
+                // console.log("교실 "+(i+1)+"번 입장");
+                console.log(`교실 ${i+1}번 입장`);
+                for(let j=0; j<3; j++) {
+                    console.log(`학생 ${j+1+(3*i)}`);
+                }
+                console.log(`교실 ${i+1}번 퇴장`);
+            }
+        }
+    </script>
+    <h1>break문</h1>
+    <input type="button" value="break 동작"
+    onclick="breakTest();">
+    <script>
+        function breakTest(){
+            // 외부 반복문 : 1,2,3
+            // 내부 반복문 : 1,2
+            for(let i=1; i<=3; i++) {
+                console.log('A');
+                for(let j=1; j<=2; j++) {
+                    console.log('B');
+                    // 1. 내부 반복문에 break문
+                    break;
+                }
+                console.log('C');
+                // 2. 외부 반복문에 break문
+                // break;
+            }
+        }
+    </script>
+    <h1>while문</h1>
+    <input type="button" value="while 동작"
+    onclick="whileFunc()">
+    <script>
+        function whileFunc(){
+            let b = 10;
+            // while(b >= 5) {
+            //     console.log(b);
+            //     b--;
+            // }
+            while(true) {
+                b--;
+                if(b==5) {
+                    break;
+                }
+            }
+        }
+    </script>
+    <script>
+        let wCnt = 10;
+        do {
+            console.log(wCnt);
+            wCnt--;
+        }
+        while(0<wCnt && wCnt<10);
+    </script>
+    <h1 onclick="continueTest();">continue</h1>
+    <script>
+        function continueTest(){
+            for(let i=1; i<=10; i++) {
+                if(i%2==0) {
+                    continue;
+                }
+                console.log(i+"출력");
+            }
+        }
+    </script>
 </body>
 </html>

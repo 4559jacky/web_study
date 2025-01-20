@@ -16,9 +16,23 @@
         <label for="prodName">상품명 : </label>
         <input type="text" id="prodName" placeholder="구매 상품명을 입력하세요"><br><br>
         <label for="price">가격 : </label>
-        <input type="text" id="price" placeholder="구매 가격을 입력하세요"><br><br>
-        <button type="button">입력값 출력하기</button><br><br> 
-        <div style="background-color: rgb(255, 253, 219); width:400px; height:200px;"></div>
+        <input type="text" id="price" name="price" placeholder="구매 가격을 입력하세요"><br><br>
+        <button type="button" onclick="funcA();">입력값 출력하기</button><br><br> 
+        <div id="resultDiv" style="background-color: rgb(255, 253, 219); width:400px; height:200px;"></div>
     </form>
+    <script>
+        function funcA() {
+            let consumer = document.getElementsByTagName('input').value;
+            let prodName = document.getElementById('prodName').value;
+            let price = document.getElementsByName('price').value;
+            console.log(consumer);
+            console.log(prodName);
+            console.log(price[1]);
+            document.getElementById('resultDiv').innerHTML = 
+            `<p>구매자 : ${consumer[0]}</p>
+            <p>상품명 : ${prodName}</p>
+            <p>가격 : ${price[0]}</p>`;
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문, 반복문 과제</title>
+</head>
+<body>
+    <h1>조건문</h1>
+    <h1>1. 날씨 확인</h1>
+    <input type="radio" value="1" name="season" id="spring">
+    <label for="spring">봄</label>
+    <input type="radio" value="2" name="season" id="summer">
+    <label for="summer">여름</label>
+    <input type="radio" value="3" name="season" id="fall">
+    <label for="fall">가을</label>
+    <input type="radio" value="4" name="season" id="winter">
+    <label for="winter">겨울</label><br>
+    <label for="temp">기온</label>
+    <input type="number" id="temp"><br>
+    <input type="button" value="확인" onclick="checkTemp();">
+    <script>
+        function checkTemp(){
+            let num = Number(document.querySelector('input[name="season"]:checked').value);
+            let temp = Number(document.getElementById('temp').value);
+            let season = "";
+            switch(num) {
+                case 1 : season = '봄'; break;
+                case 2 : season = '여름'; break;
+                case 3 : season = '가을'; break;
+                case 4 : season = '겨울'; break;
+            }
+            if(num==2&&temp>=35) {
+                alert(`계절 : ${season}, 온도 : ${temp}, 폭염주의보입니다.`);
+            } else if(num==4&&temp<=-15) {
+                alert(`계절 : ${season}, 온도 : ${temp}, 한파주의보입니다.`);
+            } else {
+                alert(`계절 : ${season}, 온도 : ${temp}`);
+            }
+        }
+    </script>
+    <h1>2. 스뚱징앵 Let's go</h1>
+    <select onchange="selectMenu();" id="menu">
+        <option value="0">메뉴선택</option>
+        <option value="1">스폰지밥</option>
+        <option value="2">뚱이</option>
+        <option value="3">징징이</option>
+        <option value="4">앵사원</option>
+    </select>
+    <div id="imagePlace"></div>
+    <script>
+        function selectMenu(){
+            let menu = Number(document.getElementById('menu').value);
+            let image = '';
+            switch(menu) {
+                case 1 : image = 'sponge.png'; break;
+                case 2 : image = 'dung.png'; break;
+                case 3 : image = 'human (1).png'; break;
+                case 4 : image = 'image.png'; break;
+            }
+            document.getElementById('imagePlace').innerHTML = 
+            `<img src="../resources/${image}" style="
+            width:300px; height:300px;
+            border: 5px solid lightgreen;
+            border-radius:300px;
+            ">`;
+        }
+    </script>
+    <br><br>
+    <hr>
+    <h1>반복문</h1>
+    <h1>1. 콤보세트</h1>
+    <label for="count">개수 : </label>
+    <input type="number" id="count">
+    <input type="button" value="주문" onclick="order();">
+    <br><br>
+    <div id="dish"></div>
+    <script>
+        function order(){
+            document.getElementById('dish').innerHTML = '';
+            let num = Number(document.getElementById('count').value);
+            for(let i=0; i<num; i++) {
+                document.getElementById('dish').innerHTML += 
+                `<img src="../resources/popcorn.png">`;
+                for(let j=0; j<3; j++) {
+                    document.getElementById('dish').innerHTML += 
+                `<img src="../resources/coke.png">`;
+                }
+                document.getElementById('dish').innerHTML += 
+                `<br>`;
+            }
+        }
+    </script>
+    <h1>2. 테이블 만들기</h1>
+    <input type="button" value="테이블 생성"
+    onclick="createTable();"><br><br>
+    <div id="create_table"></div>
+    <script>
+        function createTable(){
+            document.getElementById('create_table').innerHTML =
+            ``;
+            let row = prompt('테이블 행의 갯수는?');
+            let column = 0;
+            if(row>0) {
+                column = prompt('테이블 열의 갯수는?');
+            }
+            console.log(row, column);
+            document.getElementById('create_table').innerHTML +=
+            '';
+            let num = 1;
+            let table1 = "";
+            let table2 = "";
+            for(let i=0; i<row; i++) {
+                table2 = "";
+                for(let j=0; j<column; j++) {
+                table2 += `<td>${num++}</td>`;
+                }
+                table1 += `<tr>${table2}</tr>`
+            }
+            console.log(table1);
+            document.getElementById('create_table').innerHTML =
+            `<table border="1"><tbody>${table1}</tbody></table>`;
+        }
+    </script>
+    <h1>3. 철수의 귤농장</h1>
+    <h2>귤농장</h2>
+    <input type="button" value="체험시작"
+    onclick="start();">
+    <div id="gulFarm"></div>
+    <div id="end"></div>
+    <script>
+        let gul = 0;
+        function start(){
+            gul += 10;
+            if(gul <= 200) {
+                document.getElementById('gulFarm').innerHTML +=
+                `<p>귤 ${gul}g</p><img src="../resources/gul.png">`;
+            } else {
+                document.getElementById('end').innerHTML =
+                `<h2>체험 종료!!</h2>`;
+            }
+            
+            
+        }
+    </script>
+    <br><br><br><br><br><br><br><br>
+</body>
+</html>

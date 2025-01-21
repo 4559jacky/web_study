@@ -6,6 +6,21 @@
     <title>함수 과제</title>
 </head>
 <body>
-    
+    <h1>1. 둥글둥글 테두리</h1>
+    <div>
+    <img id="image" src="../resources/image.png"
+    style="width: 150px; 
+    height: 150px;
+    border: 4px dotted green;
+    border-radius: 40px;"><br>
+    <input type="range" min="0" max="75" id="changeR" onchange="radiusAdd();">
+    <input type="number" id="numberA">
+    </div>
+    <script>
+        let round = Number(document.getElementById('changeR').value);
+        function radiusAdd(round){
+            document.getElementById('image').style.borderRadius = `${round}px`;
+        }
+    </script>
 </body>
 </html>

@@ -29,17 +29,17 @@
         }
     </script>
     <h1>2. 함수선언</h1>
-    <input type="button" value="선언적 함수" onclick="cal1();">
-    <input type="button" value="화살표 함수" onclick="cal2();">
-    <input type="button" value="익명 함수" onclick="cal3();">
+    <input type="button" value="선언적 함수" onclick="console.log(cal1(11,41));">
+    <input type="button" value="화살표 함수" onclick="console.log(cal2(11,41));">
+    <input type="button" value="익명 함수" onclick="console.log(cal3(11,41));">
     <script>
-        function cal1(a=11,b=41){
-            console.log(a*b);
+        function cal1(a,b){
+            return a*b;
         }
-        let cal2 = function(a=11, b=41){
-            console.log(a*b);
+        let cal2 = function(a,b){
+            return a*b;
         }
-        const cal3 = (a=11, b=41) => console.log(a*b);
+        const cal3 = (a,b) => a*b;
     </script>
 
     <br>
@@ -117,7 +117,7 @@
         }
     </script>
     <h1>익명함수</h1>
-    <button>익명 테스트</button>
+    <button onclick="annonyFunc();">익명 테스트</button>
     <script>
         let annonyFunc = function(){
             alert('익명함수');
@@ -140,5 +140,34 @@
         // 4. 매개변수가 하나일 때
         const arrow4 = str => str.length;
     </script>
+    <h1>익명 함수 활용</h1>
+    <button onclick="timerFunc();">1초 뒤에 동작</button>
+    <script>
+        let timerFunc = function() {
+            // setTimeout(기능, 시간);
+            setTimeout(function(){
+                console.log('1초 지났어요~');
+            }, 1000);
+        }
+    </script>
+    <button type="button" onclick="returnFunc('바깥쪽')('테스트');">반환값 테스트</button>
+    <script>
+        const returnFunc = function(str){
+        const innerFunc = msg => {
+            console.log(str+" : "+msg);
+        }
+        return innerFunc;
+        }
+    </script>
+    <div id="instant_div">
+        즉시 실행 함수 테스트
+    </div>
+    <script>
+        (function(){
+            document.getElementById('instant_div').innerHTML
+            = '<h1>확인</h1>';
+        })();
+    </script>
+    <br><br>
 </body>
 </html>

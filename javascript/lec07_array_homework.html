@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>1. 성적 평균 계산기</h1>
+    <h2>우리반 성적</h2>
+    <p>평균 : <span id="avg"></span></p>
+    <label for="score">성적 </label>
+    <input type="number" id="score">
+    <button onclick="addScore();">추가</button>
+    <script>
+        let scoreArr = new Array();
+        const addScore = function(){
+            let num = Number(document.getElementById('score').value);
+            scoreArr.push(num);
+            let sum = 0;
+            for(let i=0; i<scoreArr.length; i++) {
+                sum += scoreArr[i];
+            }
+            let avg = sum/scoreArr.length;
+            document.getElementById('avg').innerHTML = avg;
+        }
+    </script>
+    <h1>2. water melon</h1>
+    
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 과제</title>
+</head>
+<body>
+    <h1>1. 출석부</h1>
+    <fieldset style="width:270px;">
+        <legend>강아지 정보</legend>
+        <label for="name">이름</label>
+        <input type="text" id="name"><br>
+        <label for="age">나이</label>
+        <input type="number" id="age"><br>
+        <label for="personality">특징</label>
+        <input type="text" id="personality">
+    </fieldset>
+    <br>
+    <button onclick="setFriend();">등록</button>
+    <button onclick="getFriend();">확인</button>
+    <br>
+    <div id="result_Div"></div>
+    <script>
+        let friendArr = new Array();
+        let setFriend = function(){
+            let friend = new Object();
+            let name = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            let personality = document.getElementById('personality').value;
+            friend = {
+                name : name,
+                age : age,
+                personality : personality
+            };
+            friendArr.push(friend);
+            console.log(friendArr);
+        }
+        let getFriend = function(){
+            console.log(friendArr);
+            let textAll = '';
+            for(let i=0; i<friendArr.length; i++) {
+                let text = `<tr>
+                                <td>${friendArr[i].name}</td>
+                                <td>${friendArr[i].age}</td>
+                                <td>${friendArr[i].personality}</td>
+                            </tr>`;
+                textAll += text;
+            }
+
+            document.getElementById('result_Div').innerHTML =
+            `<table border="1"><tbody>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>특징</th>
+            </tr>
+            ${textAll}
+            </tbody></table>`;
+        }
+    </script>
+    <hr>
+    <h1>2. 학생 정보</h1>
+    <div id="studentInfo"></div>
+    <!-- <label style="color:crimson">학생정보 테이블</label><br> -->
+    <button onclick="insertAndPrint();">입력 및 출력</button>
+    <script>
+        let studentArr = new Array();
+        let insertAndPrint = function(){
+            let name = prompt('이름을 입력해주세요');
+            let age = prompt('나이를 입력해주세요');
+            let addr = prompt('주소를 입력해주세요');
+            student = {
+                name : name,
+                age : age,
+                addr : addr
+            }
+            studentArr.push(student);
+            console.log(studentArr);
+            let textAll = '';
+            for(let i=0; i<studentArr.length; i++) {
+                text = `<tr>
+                            <td>${studentArr[i].name}</td>
+                            <td>${studentArr[i].age}</td>
+                            <td>${studentArr[i].addr}</td>
+                        </tr>`;
+                textAll += text;
+            }
+            document.getElementById('studentInfo').innerHTML = 
+            `<table border="2"></tbody>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>주소</th>
+                </tr>
+                ${textAll}
+            </tbody>
+            <caption style="color:crimson;
+            text-side : bottom;">학생정보 테이블</caption>
+            </table>`;
+        }
+    </script>
+    <style>
+        caption { 
+            caption-side: bottom;
+            text-align: center;
+        }
+    </style>
+    <br>
+    <hr>
+    <h1>3. 표로 검색하기</h1>
+    <h2>검색이 가능한 표</h2>
+    <button onclick="printAllData();">전체 데이터출력</button>
+    <button onclick="print20Data();">20대 출력</button>
+    <input type="text" id="searchAddr" placeholder="주소를 입력하세요.">
+    <button onclick="printSearchAddr();">주소 검색</button><br><br>
+    <table border="2" style="border-collapse:collapse; " id="userTable">
+        <tr style="background-color: gainsboro;">
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+            <th>주소</th>
+        </tr>
+    </table>
+    <script>
+        let setPerson = function(name,age,gender,addr){
+            let obj = {
+                name : name,
+                age : age,
+                gender : gender,
+                addr : addr
+            }
+            return obj;
+        };
+        let people = [
+            setPerson('김나남',24,'여','서울시 금천구'),
+            setPerson('김다담',30,'남','경기도 평택'),
+            setPerson('김라람',36, '여','부산시 진구'),
+            setPerson('김마맘',28,'남','서울시 관악구'),
+        ];
+        let printAllData = function(){
+            let textAll = '';
+            for(let i=0; i<people.length; i++) {
+                let text = `<tr>
+                                <td>${people[i].name}</td>
+                                <td>${people[i].age}</td>
+                                <td>${people[i].gender}</td>
+                                <td>${people[i].addr}</td>
+                            </tr>`;
+                textAll += text;
+                document.getElementById('userTable').innerHTML = 
+                `<table border="2" style="border-collapse:collapse; ">
+                    <tr style="background-color: gainsboro;">
+                        <th>이름</th>
+                        <th>나이</th>
+                        <th>성별</th>
+                        <th>주소</th>
+                    </tr>
+                    ${textAll}
+                </table>`;
+            }
+        }
+        let print20Data = function(){
+            document.getElementById('userTable').innerHTML = ``;
+            let textAll = '';
+            for(let i=0; i<people.length; i++) {
+                let text = '';
+                if(20<=people[i].age&&people[i].age<=29){
+                        text = `<tr>
+                                <td>${people[i].name}</td>
+                                <td>${people[i].age}</td>
+                                <td>${people[i].gender}</td>
+                                <td>${people[i].addr}</td>
+                            </tr>`;
+                }
+                textAll += text;
+                document.getElementById('userTable').innerHTML = 
+                `<table border="2" style="border-collapse:collapse; ">
+                    <tr style="background-color: gainsboro;">
+                        <th>이름</th>
+                        <th>나이</th>
+                        <th>성별</th>
+                        <th>주소</th>
+                    </tr>
+                    ${textAll}
+                </table>`; 
+            }
+        }
+        let printSearchAddr = function(){
+            document.getElementById('userTable').innerHTML = ``;
+            let addr = document.getElementById('searchAddr').value;
+            let textAll = '';
+            for(let i=0; i<people.length; i++) {
+                let text = '';
+                if(people[i].addr.includes(addr)){
+                        text = `<tr>
+                                <td>${people[i].name}</td>
+                                <td>${people[i].age}</td>
+                                <td>${people[i].gender}</td>
+                                <td>${people[i].addr}</td>
+                            </tr>`;
+                }
+                textAll += text;
+                document.getElementById('userTable').innerHTML = 
+                `<table border="2" style="border-collapse:collapse; ">
+                    <tr style="background-color: gainsboro;">
+                        <th>이름</th>
+                        <th>나이</th>
+                        <th>성별</th>
+                        <th>주소</th>
+                    </tr>
+                    ${textAll}
+                </table>`; 
+            }
+        }
+        
+    </script>
+
+    <hr>
+    <h1>4. 고객 정보 확인</h1>
+    <h2>표 만들기</h2>
+    <button onclick="createTable();">생성</button><br><br>
+    <div id="createUser"></div>
+    <script>
+        let createTable = function(){
+            document.getElementById('createUser').innerHTML = ``;
+            let textAll = '';
+            for(let i=0; i<customers.length; i++) {
+                let text = `<tr>
+                                <td>${customers[i].name}</td>
+                                <td>${customers[i].age}</td>
+                                <td>${customers[i].gender}</td>
+                            </tr>`;
+                textAll += text;
+            }
+            document.getElementById('createUser').innerHTML =
+            `<table border="1">
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>성별</th>
+                    ${textAll}
+                </tr>
+            </table>`;
+        }
+    </script>
+    <script>
+        let customers = [
+            {
+                name : '영희',
+                age : 24,
+                gender : '여'
+            }
+        ];
+        console.log(customers[0].age);
+        console.log(customers[0]['name']);
+        customers.push({name:'철수',age:21,gender:'남'});
+        customers.unshift({name:'길동',age:51, gender : 'M'});
+        // customers.pop();
+        // customers.shift();
+        
+        console.log(customers);
+        </script>
+    <br><br><br><br><br><br>
+</body>
+</html>

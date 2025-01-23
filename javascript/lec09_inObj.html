@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>연습문제</h1>
+    <button onclick="scrollTest();">스크롤 이동</button>
     <h1>string 연습하기</h1>
     <p id="textP">Lorem ipsum dolor sit amet</p>
     <form>
@@ -97,7 +98,7 @@
             }
         }
     </script>
-    <h1>댓글 입력창</h1>
+    <h1 id="target">댓글 입력창</h1>
     <textarea id="comment" maxlength="100" onkeyup="getLength(this);"></textarea>
     <span id="count">0</span>
     <sapn>/100</sapn>
@@ -162,6 +163,15 @@
 
             rnd = Math.floor(Math.random()*5)+1;
             console.log(rnd);
+        }
+    </script>
+    
+    <script>
+        const scrollTest = function(){
+            // scrollTo(0,30);
+            let point = document.getElementById('target').offsetTop;
+            // scrollTo(0,point);
+            scrollTo({left:0,top:point,behavior:'smooth'});
         }
     </script>
 </body>

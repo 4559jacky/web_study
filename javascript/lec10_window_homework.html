@@ -6,8 +6,90 @@
     <title>window 과제</title>
 </head>
 <body>
-    <button>창 만들기</button>
-    <button>자동 변경하기</button>
-    <button>멈추기</button>
+    <h1>1. 전자시계</h1>
+    <div>
+        <p><span id="year">2024</span>-<span id="mon">6</span>-<span id="date">24</span></p>
+        <p style="font-size: 60px; font-weight: 700;"><span id="hour">8</span> : <span id="minute">44</span> : <span id="second">32</span></p>
+    </div>
+    <script>
+        (function(){
+            timeInter = setInterval(function(){
+                let today = new Date();
+                let year = today.getFullYear();
+                let mon = today.getMonth()+1;
+                let date = today.getDate();
+                let hour = today.getHours();
+                let minute = today.getMinutes();
+                let second = today.getSeconds();
+                document.getElementById('year').innerHTML = `${year}`;
+                document.getElementById('mon').innerHTML = `${mon}`;
+                document.getElementById('date').innerHTML = `${date}`;
+                document.getElementById('hour').innerHTML = `${hour}`;
+                document.getElementById('minute').innerHTML = `${minute}`;
+                document.getElementById('second').innerHTML = `${second}`;
+            },1000);
+        })();
+    </script>
+
+    <hr>
+    <h1>2. 행추가</h1>
+    <input type="number" id="addRows">
+    <button onclick="printRows();">출력</button>
+    <div id="table_div"></div>
+    <script>
+        let num = 1;
+        let table;
+        table = document.createElement('table');
+        table.setAttribute('border','1');
+        let printRows = function(){
+            let row = document.getElementById('addRows').value;
+            num==1
+            for(let i=0; i<row; i++) {
+                let tr = document.createElement('tr');
+                for(let j=0; j<4; j++) {
+                    let td = document.createElement('td');
+                    let numVal = document.createTextNode(num++);
+                    td.appendChild(numVal);
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            tableDiv = document.getElementById('table_div');
+            tableDiv.appendChild(table);
+        }
+    </script>
+
+
+    <hr>
+    <h1>3. 왔다갔다 창 만들기</h1>
+    <button onclick="createWindow();">창 만들기</button>
+    <button onclick="autoChange();">자동 변경하기</button>
+    <button onclick="stoppied();">멈추기</button>
+    <script>
+        let newWindow;
+        let inter;
+        const createWindow = () => {
+            newWindow = open('','_blank','width=300,height=300');
+            newWindow.document.write(`
+                <img src="../resources/image.png" style="width:150px; height150px;">
+            `);
+        }
+        const autoChange = function(){
+            let num = 10;
+            inter = setInterval(function(){
+                newWindow.moveTo(Math.round(Math.random()*900)+1,Math.round(Math.random()*900)+1);
+            },1000);
+        }   
+        const stoppied = function(){
+            clearInterval(inter);
+            let globalTime;
+            globalTime = setTimeout(function(){
+                newWindow.close();
+            },2000);
+        }
+
+    </script>
+    <h1>중복된 아이디</h1>
+    <hr>
 </body>
 </html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window 객체</title>
+</head>
+<body>
+    <!-- 1. 로그인 버튼 생성
+        2. 로그인 버튼을 클릭하면 아이디와 비밀번호를 입력할 수 있는 창이 생김
+        3. 새로운 창에 닫기 버튼 클릭하면 창이 닫히게 구성
+    -->
+    <h1>연습문제</h1>
+    <h2>1. 로그인</h2>
+    <button onclick="loginInput();">로그인</button>
+    <script>
+        let loginWindow;
+        let loginInput = function(){
+            loginWindow = open('','_blank','width=300,height=300');
+            loginWindow.document.write(`<label for="login_id">아이디 : </label>
+                                    <input type="text" id="login_id"><br>
+                                    <label for="login_pw">비밀번호 : </label>
+                                    <input type="password" id="login_pw">
+                                    <button onclick="window.close();">닫기</button>
+                                    `);
+        }
+    </script>
+    <h2>2. 미니테스트</h2>
+    <div style="background-color: #e1f6fd; width: 450px;">
+        <p><span id="seconds">60</span> 초</p>
+        <p>다음 중 프론트엔드 개발자가 다루는 언어가 아닌 것은?</p>
+        <select id="getVal" onchange="getValue();">
+            <option>선택하기</option>
+            <option value="1">1. CSS</option>
+            <option value="2">2. HTML</option>
+            <option value="3">3. JavaScript</option>
+            <option value="4">4. Java</option>
+        </select>
+        <ol>
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+        </ol>
+    </div>
+    <button onclick="testStart();">시작</button>
+    <button onclick="testEnd();">제출</button>
+    <script>
+        let answer;
+        let getValue = function(){
+            answer = document.getElementById('getVal').value;
+        }
+        let testInter;
+        let num = 60;
+        const testStart = function(){
+            testInter = setInterval(function(){
+                document.getElementById('seconds').innerHTML = num--;
+                if(num==0) {
+                clearInterval(testInter);
+                alert('시간 초과');
+                document.getElementById('seconds').innerHTML = 0;
+                }
+            },1000);
+            
+        }
+        const testEnd = function(){
+            if(answer == 4) {
+                clearInterval(testInter);
+                alert('정답입니다.');
+            } else {
+                alert('오답입니다.');
+            }
+        }
+    </script>
+    <h2>3. 텍스트 노드 있는 객체 생성</h2>
+    <input type="text" id="insertTag" placeholder="태그입력">
+    <input type="text" id="insertText" placeholder="내용입력">
+    <button onclick="createTag();">버튼</button>
+    <div id="test_div">
+
+    </div>
+    <script>
+        const createTag = () => {
+            let tag = document.getElementById('insertTag').value;
+            let text = document.getElementById('insertText').value;
+            let iTag = document.createElement(tag);
+            let iText = document.createTextNode(text);
+            iTag.appendChild(iText);
+            document.getElementById('test_div').appendChild(iTag);
+        }
+    </script>
+
+    <hr>
+    <h1>창 열고 닫기</h1>
+    <button onclick="createWindow();">새로운 창 열기</button>
+    <script>
+        let newWindow;
+        let createWindow = function(){
+            // window.open();
+            // window.open('https://www.naver.com');
+
+            // window.open('https://www.naver.com','_self');
+            // window.open의 dafault는 _blank이다.
+            // window.open('https://www.naver.com','_blank');
+            // window.open('https://www.naver.com','_blank','width=300,height=300');
+            newWindow = open('https://www.naver.com','_blank','width=300,height=300');
+
+        }
+    </script>
+    <button onclick="closeWindow();">창닫기</button>
+    <script>
+        let closeWindow = function(){
+            // window.close();
+            newWindow.close();
+        }
+    </script>
+    <button onclick="openInput();">입력창 열기</button>
+    <button onclick="getInfo();">입력창 정보 가져오기</button>
+    <script>
+        let openInput = function(){
+            newWindow = open('','_blank','width=300,height=300');
+            newWindow.document.write(`<label for="text_input">입력</label>
+                                    <input type="text" id="text_input">`);
+        }
+        let getInfo = function(){
+            let textInput = newWindow.document.getElementById('text_input').value;
+            console.log(textInput);
+        }
+    </script>
+    <button onclick="moveTest();">창 위치 변경</button>
+    <script>
+        const moveTest = function(){
+            newWindow.moveTo(Math.round(Math.random()*900)+1,500);
+            //resizeTo(width,height);
+            newWindow.resizeTo(100,300);
+        }
+    </script>
+    <h1>timeout</h1>
+    <button onclick="timeoutStart();">시작</button>
+    <button onclick="timeoutEnd();">종료</button>
+    <div id="container"></div>
+    <script>
+        let globalTime;
+        let timeoutStart = function(){
+            globalTime = setTimeout(function(){
+                document.getElementById('container').innerHTML = `<h1>앵 타임아웃인뒹 ㅋ</h1>`;
+            },5000);
+        }
+        let timeoutEnd = function(){
+            clearTimeout(globalTime);
+        }
+    </script>
+    <h1>interval</h1>
+    <button onclick="intervalStart();">시작</button>
+    <button onclick="intervalEnd();">종료</button>
+    <script>
+        let inter;
+        const intervalStart = function(){
+            let num = 10;
+            inter = setInterval(function(){
+                document.getElementById('container').innerHTML += num--+'<br>';
+            },1000);
+        }
+        const intervalEnd = function(){
+            clearInterval(inter);
+        }
+    </script>
+    <h1 id="before_ele">before(전)</h1>
+    <script>
+        window.onload = function(){
+            console.log(document.getElementById('before_ele').innerText);
+            console.log(document.getElementById('after_ele').innerText);
+        }
+    </script>
+    <h1 id="after_ele">after(후)</h1>
+    <button onclick="printInfomation(screen);">screen 객체 출력</button>
+    <button onclick="printInfomation(navigator)">navigator 객체 출력</button>
+    <button onclick="printInfomation(history)">history 객체 출력</button>
+    <button onclick="printInfomation(location)">location 객체 출력</button>
+    <div id="screen_div">
+        
+    </div>
+    <script>
+        let printInfomation = function(obj){
+            const div = document.getElementById('screen_div');
+            for(key in obj) {
+                div.innerHTML += `${key} : ${obj[key]} <br>`;
+            }
+        }
+    </script>
+    <button onclick="history.back();">이전</button>
+    <button onclick="history.forward();">앞으로</button>
+
+    <button onclick="location.href='https://www.naver.com';">href</button>
+    <button onclick="location.assign('https://www.naver.com');">assign</button>
+    <button onclick="location.replace('https://www.naver.com');">replace</button>
+    <button onclick="location.reload();">reload</button>
+
+    <h1>텍스트 노드가 있는 태그 생성</h1>
+    <button onclick="addTextElement();">태그 추가</button>
+    <div id="tag_div">
+
+    </div>
+    <script>
+        const addTextElement = function(){
+            // document.getElementById('tag_div').innerHTML += '<p>Hello</p>';
+            const pTag = document.createElement('p');
+            const pText = document.createTextNode('Hello');
+            pTag.appendChild(pText);
+            document.getElementById('tag_div').appendChild(pTag);
+        }
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

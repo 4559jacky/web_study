@@ -126,6 +126,53 @@
             ul.insertAdjacentElement('afterbegin',li);
         }
     </script>
+    <h2>6. 메뉴추가(강사님)</h2>
+    <ul id="target_ul">
+        <li>짜장면</li>
+        <li>볶음밥</li>
+        <li>짬뽕</li>
+    </ul>
+    <input type="text" name="food" placeholder="추가할 메뉴 작성">
+    <button onclick="addMenu1();">추가</button>
+    <button onclick="changeMenu();">이동</button>
+    <script>
+        const addMenu1 = function(){
+            const food = document.getElementsByName('food')[0].value;
+
+            const li = document.createElement('li');
+            const text = document.createTextNode(food);
+            li.appendChild(text);
+
+            const ul = document.getElementById('target_ul');
+            ul.appendChild(li);
+
+            document.getElementsByName('food')[0].value='';
+        }
+        const changeMenu = function(){
+            // const lis = document.querySelectorAll('#target_ul > li');
+            // const lastLi = lis[lis.length-1];
+            const lastLi = document.querySelector('#target_ul > li:last-child');
+            document.getElementById('target_ul').insertAdjacentElement('afterbegin',lastLi);
+        }
+    </script>
+    <h2>7. 강조하기</h2>
+    <style>
+        .highlight{
+            color : green;
+            background-color: gold;
+        }
+    </style>
+    <h1 id="aeng">앵</h1>
+    <button onclick="addHighlight();">highlight 추가</button>
+    <button onclick="removeHighlight();">highlight 제거</button>
+    <script>
+        const addHighlight = function(){
+            document.getElementById('aeng').classList.add('highlight');
+        }
+        const removeHighlight = function(){
+            document.getElementById('aeng').classList.remove('highlight');
+        }
+    </script>
     <hr>
     <h1>창 열고 닫기</h1>
     <button onclick="createWindow();">새로운 창 열기</button>
@@ -322,6 +369,80 @@
             div.insertAdjacentElement('afterend',h2);
         }
     </script>
+    <h1>class 속성 추가 및 삭제</h1>
+    <style>
+        .colorful{
+            border: 3px double deepskyblue;
+            background-color: aliceblue;
+        }
+    </style>
+    <p id="standard">기준 p태그</p>
+    <button onclick="addClassTest();">colorful 클래스 추가</button><br>
+    <button onclick="removeClassTest();">colorful 클래스 삭제</button><br>
+    <script>
+        const addClassTest = function(){
+            document.getElementById('standard').classList.add('colorful');
+        }
+        const removeClassTest = function(){
+            document.getElementById('standard').classList.remove('colorful');
+        }
+    </script>
+    <h1>주변태그 접근하기</h1>
+    <div id="searchTag">
+        <h2>얘는 h2에용</h2>
+        <ul>
+            <li>가</li>
+            <li>나</li>
+            <li>다</li>
+        </ul>
+        <button id="search_btn">주변 조회</button>
+        <button id="remove_btn">태그 제거</button>
+    </div>
+    <script>
+        let trueOrFalse = true;
+        document.getElementById('remove_btn').onclick = function(){
+            if(trueOrFalse == true) {
+                let deleteElement = this.parentElement.children[1];
+                // deleteElement = this.previousElementSibling.previousElementSibling;
+                deleteElement.remove();
+                trueOrFalse = false;
+            }
+                
+            
+
+        }
+
+        document.getElementById('search_btn').onclick = function(){
+            const tar = this;
+            console.log(tar);
+            const parent = tar.parentElement;
+            console.log(tar, parent);
+            const children = parent.children;
+            console.log(children);
+
+            const arr = this.parentElement.children;
+            console.log(arr);
+            for(let i=0; i<arr.length; i++) {
+                console.log(i+" : "+arr[i].tagName);
+                if(arr[i].tagName == 'H2') {
+                    arr[i].style.backgroundColor = 'gold';
+                } else if(arr[i].tagName == 'UL') {
+                    const li = arr[i].children;
+                    console.log(li);
+                }
+            }
+
+            const firstLi = this.parentElement.children[1].children[0];
+            console.log(firstLi);
+            const secondLi = firstLi.nextElementSibling;
+            console.log(secondLi);
+
+            const ulTarget = document.getElementById('searchTag').children[1].previousElementSibling;
+            console.log(ulTarget);
+
+        }
+    </script>
+
 
     <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>

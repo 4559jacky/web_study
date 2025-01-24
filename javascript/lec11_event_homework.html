@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 과제</title>
+</head>
+<body>
+    <h1> rainbowColor </h1>
+    <form id="colorFrm">
+        <table></table>
+    </form><br><br>
+
+    <form id="colorFrm1">
+        <table></table>
+    </form>
+    <script>
+        let table = document.querySelector('form[id="colorFrm1"] > table');
+        table.setAttribute('border','2');
+        table.setAttribute('style','border-collapse:collapse');
+        let tr = document.createElement('tr');
+        let th = document.createElement('th');
+        let td = document.createElement('td');
+        let input = document.createElement('input');
+        let label = document.createElement('label');
+        let txt = '전체선택';
+        let color = '';
+        let text = document.createTextNode(txt);
+        // 전체선택
+        th.appendChild(text);
+        tr.appendChild(th);
+        table.appendChild(tr);
+
+        td = document.createElement('td');
+        for(let i=1; i<=7; i++) {
+            switch(i) {
+                case 1 : txt = '빨'; color = 'red'; break;
+                case 2 : txt = '주'; color = 'orange'; break;
+                case 3 : txt = '노'; color = 'yellow'; break;
+                case 4 : txt = '초'; color = 'green'; break;
+                case 5 : txt = '파'; color = 'blue'; break;
+                case 6 : txt = '남'; color = 'darkBlue'; break;
+                case 7 : txt = '보'; color = 'violet'; break;
+            }
+
+            // 전체선택 : 빨주노초파남보
+            input = document.createElement('input');
+            label = document.createElement('label');
+
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`${color}All`);
+            input.setAttribute('name','color');
+            input.setAttribute('value',`${i}`);
+
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`${color}All`);
+            
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+        }
+
+        // for문 돌리기
+
+        for(let i=1; i<=7; i++) {
+
+            tr = document.createElement('tr');
+            // 숫자 텍스트
+            switch(i) {
+                case 1 : txt = '하나'; break;
+                case 2 : txt = '둘'; break;
+                case 3 : txt = '셋'; break;
+                case 4 : txt = '넷'; break;
+                case 5 : txt = '다섯'; break;
+                case 6 : txt = '여섯'; break;
+                case 7 : txt = '일곱'; break;
+            }
+            let text = document.createTextNode(txt);
+            th = document.createElement('th');
+            th.appendChild(text);
+            tr.appendChild(th);
+            table.appendChild(tr);
+
+            // ㅁ빨
+            input = document.createElement('input');
+            label = document.createElement('label');
+
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`red${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','1');
+
+            txt = '빨';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`red${i}`);
+            
+            td = document.createElement('td');
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            // ㅁ주
+            input = document.createElement('input');
+            label = document.createElement('label');
+
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`orange${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','2');
+
+            txt = '주';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`orange${i}`);
+
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            // ㅁ노
+            input = document.createElement('input');
+            label = document.createElement('label');
+            
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`yellow${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','3');
+
+            txt = '노';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`yellow${i}`);
+
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            // ㅁ초
+            input = document.createElement('input');
+            label = document.createElement('label');
+            
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`green${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','4');
+
+            txt = '초';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`green${i}`);
+
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            // ㅁ파
+            input = document.createElement('input');
+            label = document.createElement('label');
+            
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`blue${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','5');
+
+            txt = '파';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`blue${i}`);
+
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            // ㅁ남
+            input = document.createElement('input');
+            label = document.createElement('label');
+            
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`darkBlue${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','6');
+
+            txt = '남';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`darkBlue${i}`);
+
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            // ㅁ보
+            input = document.createElement('input');
+            label = document.createElement('label');
+            
+            input.setAttribute('type','checkbox');
+            input.setAttribute('id',`violet${i}`);
+            input.setAttribute('name','color');
+            input.setAttribute('value','7');
+
+            txt = '보';
+            text = document.createTextNode(txt);
+            label.appendChild(text);
+            label.setAttribute('for',`violet${i}`);
+
+            td.appendChild(input);
+            td.appendChild(label);
+            tr.appendChild(td);
+            table.appendChild(tr);
+        }
+
+
+        // 버튼 생성
+
+        tr = document.createElement('tr');
+        th = document.createElement('th');
+        th.setAttribute('colspan','2');
+        input = document.createElement('input');
+        input.setAttribute('type','submit');
+        input.setAttribute('value','submit');
+        th.appendChild(input);
+
+        input = document.createElement('input');
+        input.setAttribute('type','reset');
+        input.setAttribute('value','reset');
+        th.appendChild(input);
+
+        tr.appendChild(th);
+        table.appendChild(tr);
+
+        
+
+        // (function(){
+        //     document.querySelector('form[id="colorFrm"] > table').setAttribute('border','2');
+        //     document.querySelector('form[id="colorFrm"] > table').setAttribute('style','border-collapse:collapse');
+        //     document.querySelector('form[id="colorFrm"] > table').innerHTML =
+        //     `<tr>
+        //         <th>전체선택:</th>
+        //         <td>
+        //             <input type="checkbox" id="redAll" name="color" value="1">
+        //             <label for="redAll">빨</label>
+        //             <input type="checkbox" id="orangeAll" name="color" value="2">
+        //             <label for="orangeAll">주</label>
+        //             <input type="checkbox" id="yellowAll" name="color" value="3">
+        //             <label for="yellowAll">노</label>
+        //             <input type="checkbox" id="greenAll" name="color" value="4">
+        //             <label for="greenAll">초</label>
+        //             <input type="checkbox" id="blueAll" name="color" value="5">
+        //             <label for="blueAll">파</label>
+        //             <input type="checkbox" id="darkblueAll" name="color" value="6">
+        //             <label for="darkblueAll">남</label>
+        //             <input type="checkbox" id="violetAll" name="color" value="7">
+        //             <label for="violetAll">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>하나</th>
+        //         <td>
+        //             <input type="checkbox" id="red1" name="color" value="1">
+        //             <label for="red1">빨</label>
+        //             <input type="checkbox" id="orange1" name="color" value="2">
+        //             <label for="orange1">주</label>
+        //             <input type="checkbox" id="yellow1" name="color" value="3">
+        //             <label for="yellow1">노</label>
+        //             <input type="checkbox" id="green1" name="color" value="4">
+        //             <label for="green1">초</label>
+        //             <input type="checkbox" id="blue1" name="color" value="5">
+        //             <label for="blue1">파</label>
+        //             <input type="checkbox" id="darkBlue1" name="color" value="6">
+        //             <label for="darkBlue1">남</label>
+        //             <input type="checkbox" id="violet1" name="color" value="7">
+        //             <label for="violet1">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>둘</th>
+        //         <td>
+        //             <input type="checkbox" id="red2" name="color" value="1">
+        //             <label for="red2">빨</label>
+        //             <input type="checkbox" id="orange2" name="color" value="2">
+        //             <label for="orange2">주</label>
+        //             <input type="checkbox" id="yellow2" name="color" value="3">
+        //             <label for="yellow2">노</label>
+        //             <input type="checkbox" id="green2" name="color" value="4">
+        //             <label for="green2">초</label>
+        //             <input type="checkbox" id="blue2" name="color" value="5">
+        //             <label for="blue2">파</label>
+        //             <input type="checkbox" id="darkBlue2" name="color" value="6">
+        //             <label for="darkBlue2">남</label>
+        //             <input type="checkbox" id="violet2" name="color" value="7">
+        //             <label for="violet2">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>셋</th>
+        //         <td>
+        //             <input type="checkbox" id="red3" name="color" value="1">
+        //             <label for="red3">빨</label>
+        //             <input type="checkbox" id="orange3" name="color" value="2">
+        //             <label for="orange3">주</label>
+        //             <input type="checkbox" id="yellow3" name="color" value="3">
+        //             <label for="yellow3">노</label>
+        //             <input type="checkbox" id="green3" name="color" value="4">
+        //             <label for="green3">초</label>
+        //             <input type="checkbox" id="blue3" name="color" value="5">
+        //             <label for="blue3">파</label>
+        //             <input type="checkbox" id="darkBlue3" name="color" value="6">
+        //             <label for="darkBlue3">남</label>
+        //             <input type="checkbox" id="violet3" name="color" value="7">
+        //             <label for="violet3">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>넷</th>
+        //         <td>
+        //             <input type="checkbox" id="red4" name="color" value="1">
+        //             <label for="red4">빨</label>
+        //             <input type="checkbox" id="orange4" name="color" value="2">
+        //             <label for="orange4">주</label>
+        //             <input type="checkbox" id="yellow4" name="color" value="3">
+        //             <label for="yellow4">노</label>
+        //             <input type="checkbox" id="green4" name="color" value="4">
+        //             <label for="green4">초</label>
+        //             <input type="checkbox" id="blue4" name="color" value="5">
+        //             <label for="blue4">파</label>
+        //             <input type="checkbox" id="darkBlue4" name="color" value="6">
+        //             <label for="darkBlue4">남</label>
+        //             <input type="checkbox" id="violet4" name="color" value="7">
+        //             <label for="violet4">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>다섯</th>
+        //         <td>
+        //             <input type="checkbox" id="red5" name="color" value="1">
+        //             <label for="red5">빨</label>
+        //             <input type="checkbox" id="orange5" name="color" value="2">
+        //             <label for="orange5">주</label>
+        //             <input type="checkbox" id="yellow5" name="color" value="3">
+        //             <label for="yellow5">노</label>
+        //             <input type="checkbox" id="green5" name="color" value="4">
+        //             <label for="green5">초</label>
+        //             <input type="checkbox" id="blue5" name="color" value="5">
+        //             <label for="blue5">파</label>
+        //             <input type="checkbox" id="darkBlue5" name="color" value="6">
+        //             <label for="darkBlue5">남</label>
+        //             <input type="checkbox" id="violet5" name="color" value="7">
+        //             <label for="violet5">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>여섯</th>
+        //         <td>
+        //             <input type="checkbox" id="red6" name="color" value="1">
+        //             <label for="red6">빨</label>
+        //             <input type="checkbox" id="orange6" name="color" value="2">
+        //             <label for="orange6">주</label>
+        //             <input type="checkbox" id="yellow6" name="color" value="3">
+        //             <label for="yellow6">노</label>
+        //             <input type="checkbox" id="green6" name="color" value="4">
+        //             <label for="green6">초</label>
+        //             <input type="checkbox" id="blue6" name="color" value="5">
+        //             <label for="blue6">파</label>
+        //             <input type="checkbox" id="darkBlue6" name="color" value="6">
+        //             <label for="darkBlue6">남</label>
+        //             <input type="checkbox" id="violet6" name="color" value="7">
+        //             <label for="violet6">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th>일곱</th>
+        //         <td>
+        //             <input type="checkbox" id="red7" name="color" value="1">
+        //             <label for="red7">빨</label>
+        //             <input type="checkbox" id="orange7" name="color" value="2">
+        //             <label for="orange7">주</label>
+        //             <input type="checkbox" id="yellow7" name="color" value="3">
+        //             <label for="yellow7">노</label>
+        //             <input type="checkbox" id="green7" name="color" value="4">
+        //             <label for="green7">초</label>
+        //             <input type="checkbox" id="blue7" name="color" value="5">
+        //             <label for="blue7">파</label>
+        //             <input type="checkbox" id="darkBlue7" name="color" value="6">
+        //             <label for="darkBlue7">남</label>
+        //             <input type="checkbox" id="violet7" name="color" value="7">
+        //             <label for="violet7">보</label>
+        //         </td>
+        //     </tr>
+        //     <tr>
+        //         <th colspan="2">
+        //             <button type="submit">submit</button>
+        //             <button type="reset">reset</button>
+        //         </th>
+        //     </tr>
+        //     `;
+        // })();
+    </script>
+</body>
+</html>

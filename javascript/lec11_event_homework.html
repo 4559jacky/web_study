@@ -49,6 +49,7 @@
             th.appendChild(text);
             tr.appendChild(th);
             td = document.createElement('td');
+            td.setAttribute('id',`td${i}`);
             for(let j=1; j<=7; j++) {
                 switch(j) {
                     case 1 : txt = '빨'; color = 'red'; break;
@@ -88,6 +89,7 @@
                     input.setAttribute('id',`${color}${i}`);
                     input.setAttribute('name','color');
                     input.setAttribute('value',`${j}`);
+                    input.setAttribute('class',`${color}`)
 
                     text = document.createTextNode(txt);
                     label.appendChild(text);
@@ -109,17 +111,76 @@
         th = document.createElement('th');
         th.setAttribute('colspan','2');
         input = document.createElement('input');
-        input.setAttribute('type','submit');
+        input.setAttribute('type','button');
         input.setAttribute('value','submit');
+        input.setAttribute('id','submit');
         th.appendChild(input);
 
         input = document.createElement('input');
-        input.setAttribute('type','reset');
+        input.setAttribute('type','button');
         input.setAttribute('value','reset');
+        input.setAttribute('id','reset');
+
         th.appendChild(input);
 
         tr.appendChild(th);
         table.appendChild(tr);
+    </script>
+    <!-- 기능 script -->
+    <script>
+        // checkbox 기능
+        let colorFunc = '';
+        document.getElementById('redAll').addEventListener('click',function(e){
+            console.log('hi');
+            let bool = document.getElementById('redAll').checked;
+            console.log(typeof(bool), bool);
+            if(bool == true) {
+                for(let i=1; i<=7; i++) {
+                    document.getElementById(`red${i}`).checked = true;
+                }
+            } else {
+                for(let i=1; i<=7; i++) {
+                    document.getElementById(`red${i}`).checked = false;
+                }
+            }
+        });
+        document.getElementById('orangeAll').addEventListener('click',function(e){
+            console.log('hi');
+        });
+        document.getElementById('yellowAll').addEventListener('click',function(e){
+            console.log('hi');
+        });
+        document.getElementById('greenAll').addEventListener('click',function(e){
+            console.log('hi');
+        });
+        document.getElementById('blueAll').addEventListener('click',function(e){
+            console.log('hi');
+        });
+        document.getElementById('darkBlueAll').addEventListener('click',function(e){
+            console.log('hi');
+        });
+        document.getElementById('violetAll').addEventListener('click',function(e){
+            console.log('hi');
+        });
+        
+        // 버튼 기능
+        document.getElementById('submit').addEventListener('click',function(){
+            console.log('hi');
+            document.getElementById('td1').style.backgroundColor = 'red';
+            document.getElementById('td2').style.backgroundColor = 'orange';
+            document.getElementById('td3').style.backgroundColor = 'yellow';
+            document.getElementById('td4').style.backgroundColor = 'green';
+            document.getElementById('td5').style.backgroundColor = 'skyblue';
+            document.getElementById('td6').style.backgroundColor = 'blue';
+            document.getElementById('td7').style.backgroundColor = 'violet';
+
+        });
+        document.getElementById('reset').addEventListener('click',function(e){
+            location.reload();
+        });
+        
+
+
     </script>
 
 </body>

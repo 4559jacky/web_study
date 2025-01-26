@@ -75,7 +75,6 @@
                     label.appendChild(text);
                     label.setAttribute('for',`${color}All`);
                     
-                    
                     td.appendChild(input);
                     td.appendChild(label);
                     tr.appendChild(td);
@@ -97,7 +96,6 @@
                     
                     td.appendChild(input);
                     td.appendChild(label);
-
                     tr.appendChild(td);
                     table.appendChild(tr);
                 }
@@ -132,38 +130,36 @@
     <script>
         // checkbox 기능
         let colorAll;
-        let colorFunc;
+
+        // 숫자로 색깔 골라오는 함수
+        function switchThis(num){
+            let sampleColor
+            switch(num) {
+                case 1 : sampleColor = 'red'; break;
+                case 2 : sampleColor = 'orange'; break;
+                case 3 : sampleColor = 'yellow'; break;
+                case 4 : sampleColor = 'green'; break;
+                case 5 : sampleColor = 'skyblue'; break;
+                case 6 : sampleColor = 'blue'; break;
+                case 7 : sampleColor = 'violet'; break;
+            }
+            return sampleColor;
+        }
+
         let checkBox = document.getElementsByName('color');
+        
         for(let i=0; i<checkBox.length; i++) {
             checkBox[i].addEventListener('click',function(){
                 let select = checkBox[i].value;
                 if(select.includes('color')) {
                     // 최상단 전제선택
-                    console.log('전체선택');
+                    // console.log('전체선택');
                     let selectNum1 = Number(select.substr(select.length-1,1));
-                    switch(selectNum1) {
-                        case 1 : colorAll = 'red'; break;
-                        case 2 : colorAll = 'orange'; break;
-                        case 3 : colorAll = 'yellow'; break;
-                        case 4 : colorAll = 'green'; break;
-                        case 5 : colorAll = 'skyblue'; break;
-                        case 6 : colorAll = 'blue'; break;
-                        case 7 : colorAll = 'violet'; break;
-                    }
-                    console.log(colorAll);
-                    console.log('hi');
+                    colorAll = switchThis(selectNum1);
+                    console.log('id : '+colorAll+'All');
                     for(let i=1; i<=7; i++) {
                         if(i!=selectNum1) {
-                            let color;
-                            switch(i) {
-                            case 1 : color = 'red'; break;
-                            case 2 : color = 'orange'; break;
-                            case 3 : color = 'yellow'; break;
-                            case 4 : color = 'green'; break;
-                            case 5 : color = 'skyblue'; break;
-                            case 6 : color = 'blue'; break;
-                            case 7 : color = 'violet'; break;
-                            }
+                            let color = switchThis(i);
                             let step = document.getElementById(`${color}All`);
                             if(step.checked == true) {
                                 step.checked = false;
@@ -176,64 +172,46 @@
                             }
                         }
                     }
-                    colorFunc = `${colorAll}`;
                     // 전체선택을 누르면 1~7번쨰 체크박스가 다 같이 동작하는 함수
-                    Func();
+                    Func(colorAll);
                 } else {
                     // 하나~일곱
-                    console.log('하나~일곱');
+                    // console.log('하나~일곱');
                     let selectNum2 = Number(select.substr(select.length-1,1));
                     let id = Number(select.substr(0,1));
-                    console.log('숫자는 : '+id);
-                    switch(selectNum2) {
-                        case 1 : colorAll = 'red'; break;
-                        case 2 : colorAll = 'orange'; break;
-                        case 3 : colorAll = 'yellow'; break;
-                        case 4 : colorAll = 'green'; break;
-                        case 5 : colorAll = 'skyblue'; break;
-                        case 6 : colorAll = 'blue'; break;
-                        case 7 : colorAll = 'violet'; break;
-                    }
-                    console.log(colorAll);
-                    console.log('hi');
+                    let thisColor = switchThis(selectNum2);
+                    console.log('id : '+thisColor+id);
+                    let box = document.getElementById(`${thisColor}${id}`);
+                    let checked = box.checked;
+                    console.log('체크박스 : '+checked);
                     for(let i=1; i<=7; i++) {
                         if(i!=selectNum2) {
-                            let color;
-                            switch(i) {
-                            case 1 : color = 'red'; break;
-                            case 2 : color = 'orange'; break;
-                            case 3 : color = 'yellow'; break;
-                            case 4 : color = 'green'; break;
-                            case 5 : color = 'skyblue'; break;
-                            case 6 : color = 'blue'; break;
-                            case 7 : color = 'violet'; break;
-                            }
+                            let color = switchThis(i);
                             let step = document.getElementById(`${color}${id}`);
                             if(step.checked == true) {
                             step.checked = false;
                             }
                         }
                     }
+
                 }
             });
         }
 
-                    
-
-        let Func = function(){
-            let bool = document.getElementById(`${colorFunc}All`).checked;
-            console.log(typeof(bool), bool);
+        // 전체 선택
+        function Func(color){
+            let bool = document.getElementById(`${color}All`).checked;
+            console.log('체크박스 : '+bool);
             if(bool == true) {
                 for(let i=1; i<=7; i++) {
-                    document.getElementById(`${colorFunc}${i}`).checked = true;
+                    document.getElementById(`${color}${i}`).checked = true;
                 }
             } else {
                 for(let i=1; i<=7; i++) {
-                    document.getElementById(`${colorFunc}${i}`).checked = false;
+                    document.getElementById(`${color}${i}`).checked = false;
                 }
             }
         }
-
         
         // 버튼 기능
         document.getElementById('submit').addEventListener('click',function(){
@@ -247,28 +225,16 @@
                 let valueC = step.value;
                 let strValue = valueC.substr(valueC.length-1,1);
                 let strValueNum = Number(strValue);
-                let bgColor;
-                switch(strValueNum) {
-                    case 1 : bgColor = 'red'; break;
-                    case 2 : bgColor = 'orange'; break;
-                    case 3 : bgColor = 'yellow'; break;
-                    case 4 : bgColor = 'green'; break;
-                    case 5 : bgColor = 'skyblue'; break;
-                    case 6 : bgColor = 'blue'; break;
-                    case 7 : bgColor = 'violet'; break;
-                }
+                let bgColor = switchThis(strValueNum);
                 console.log(bgColor);
                 document.getElementById(`td${i}`).style.backgroundColor = bgColor;
             }
-
         });
+
+        // 리셋 버튼
         document.getElementById('reset').addEventListener('click',function(e){
             location.reload();
         });
-        
-
-
     </script>
-
 </body>
 </html>

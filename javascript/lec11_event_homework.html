@@ -56,8 +56,8 @@
                     case 2 : txt = '주'; color = 'orange'; break;
                     case 3 : txt = '노'; color = 'yellow'; break;
                     case 4 : txt = '초'; color = 'green'; break;
-                    case 5 : txt = '파'; color = 'blue'; break;
-                    case 6 : txt = '남'; color = 'darkBlue'; break;
+                    case 5 : txt = '파'; color = 'skyblue'; break;
+                    case 6 : txt = '남'; color = 'blue'; break;
                     case 7 : txt = '보'; color = 'violet'; break;
                 }
 
@@ -97,6 +97,7 @@
                     
                     td.appendChild(input);
                     td.appendChild(label);
+
                     tr.appendChild(td);
                     table.appendChild(tr);
                 }
@@ -126,53 +127,249 @@
         tr.appendChild(th);
         table.appendChild(tr);
     </script>
+
     <!-- 기능 script -->
     <script>
         // checkbox 기능
-        let colorFunc = '';
-        document.getElementById('redAll').addEventListener('click',function(e){
+        
+         ddEventListener('click',function(){
             console.log('hi');
-            let bool = document.getElementById('redAll').checked;
+        });
+
+
+
+
+
+        document.getElementById('redAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(1!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'red';
+            Func();
+        });
+        document.getElementById('orangeAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(2!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'orange'
+            Func();
+        });
+        document.getElementById('yellowAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(3!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'yellow'
+            Func();
+        });
+        document.getElementById('greenAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(4!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'green'
+            Func();
+        });
+        document.getElementById('skyblueAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(5!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'skyblue'
+            Func();
+        });
+        document.getElementById('blueAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(6!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'blue'
+            Func();
+        });
+        document.getElementById('violetAll').addEventListener('click',function(e){
+            let num = 0;
+            for(let i=0; i<=7; i++) {
+                if(7!=i) {
+                    let color;
+                    switch(i) {
+                    case 1 : color = 'red'; break;
+                    case 2 : color = 'orange'; break;
+                    case 3 : color = 'yellow'; break;
+                    case 4 : color = 'green'; break;
+                    case 5 : color = 'skyblue'; break;
+                    case 6 : color = 'blue'; break;
+                    case 7 : color = 'violet'; break;
+                    }
+                    for(let j=1; j<=7; j++) {
+                        if(j==i) continue;
+                        let step = document.querySelector(`#${color}${j}:checked`);
+                        if(step != null) {
+                            step.checked = false;
+                        }
+                    }
+                }
+                num++;
+            }
+            colorFunc = 'violet'
+            Func();
+        });
+
+        let Func = function(){
+            let bool = document.getElementById(`${colorFunc}All`).checked;
             console.log(typeof(bool), bool);
             if(bool == true) {
                 for(let i=1; i<=7; i++) {
-                    document.getElementById(`red${i}`).checked = true;
+                    document.getElementById(`${colorFunc}${i}`).checked = true;
                 }
             } else {
                 for(let i=1; i<=7; i++) {
-                    document.getElementById(`red${i}`).checked = false;
+                    document.getElementById(`${colorFunc}${i}`).checked = false;
                 }
             }
-        });
-        document.getElementById('orangeAll').addEventListener('click',function(e){
-            console.log('hi');
-        });
-        document.getElementById('yellowAll').addEventListener('click',function(e){
-            console.log('hi');
-        });
-        document.getElementById('greenAll').addEventListener('click',function(e){
-            console.log('hi');
-        });
-        document.getElementById('blueAll').addEventListener('click',function(e){
-            console.log('hi');
-        });
-        document.getElementById('darkBlueAll').addEventListener('click',function(e){
-            console.log('hi');
-        });
-        document.getElementById('violetAll').addEventListener('click',function(e){
-            console.log('hi');
-        });
+        }
+
         
         // 버튼 기능
         document.getElementById('submit').addEventListener('click',function(){
             console.log('hi');
-            document.getElementById('td1').style.backgroundColor = 'red';
-            document.getElementById('td2').style.backgroundColor = 'orange';
-            document.getElementById('td3').style.backgroundColor = 'yellow';
-            document.getElementById('td4').style.backgroundColor = 'green';
-            document.getElementById('td5').style.backgroundColor = 'skyblue';
-            document.getElementById('td6').style.backgroundColor = 'blue';
-            document.getElementById('td7').style.backgroundColor = 'violet';
+            for(let i=1; i<=7; i++) {
+                let step = document.querySelector(`#td${i} > input[type="checkbox"]:checked`);
+                if (!step) {
+                console.log(`No checkbox selected in td${i}`);
+                continue;
+                }
+                let value = Number(step.value);
+                let bgColor;
+                switch(value) {
+                    case 1 : bgColor = 'red'; break;
+                    case 2 : bgColor = 'orange'; break;
+                    case 3 : bgColor = 'yellow'; break;
+                    case 4 : bgColor = 'green'; break;
+                    case 5 : bgColor = 'skyblue'; break;
+                    case 6 : bgColor = 'blue'; break;
+                    case 7 : bgColor = 'violet'; break;
+                }
+                console.log(bgColor);
+                document.getElementById(`td${i}`).style.backgroundColor = bgColor;
+            }
+
+            // document.getElementById('td1').style.backgroundColor = 'red';
 
         });
         document.getElementById('reset').addEventListener('click',function(e){

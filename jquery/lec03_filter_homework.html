@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 탐색 과제</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1>과제</h1>
+    <h2>1. 요소 탐색 총정리</h2>
+    <div id="prompt_div">
+        <h2>promt로 입력받기</h2>
+        <button>실행</button>
+        <br>
+        <div></div>
+    </div>
+    <script>
+        $(function(){
+            $('#prompt_div > button').on('click',function(){
+                let msg = prompt('메세지를 입력하세요.');
+                $('#prompt_div > div').html(msg);
+            });
+        })
+    </script>
+    <br><hr>
+    <h2>2. 랜덤 뽑기</h2>
+    <button id="eventOn">실행하기</button>
+    <div id="random"></div>
+    <script>
+        $(function(){
+            $('#eventOn').on('click',function(){
+                $('#random').html('');
+                let arr = new Array();
+                for(let i=0; i<5; i++) {
+                    arr[i] = Math.round((Math.random()*100)+1);
+                }
+                for(let i=0; i<arr.length-1; i++) {
+                    for(let j=i+1; j<arr.length; j++) {
+                        if(arr[i]<arr[j]) {
+                            let temp = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = temp;
+                        }
+                    }
+                }
+                // arr.sort().reverse();
+                for(let i=0; i<arr.length; i++) {
+                    $('#random').append(arr[i]+' ');
+                }
+            })
+        })
+    </script>
+    <hr>
+    <h3>3. 출석부</h3>
+    <button id="print">출력</button>
+    <div id="student"></div>
+    <script>
+        $(function(){
+            const arr = [
+                {name:'김철수',age : 20,address:'서울'},
+                {name:'이영희',age:30,address:'부산'},
+                {name:'최철수',age:40,address:'광주'}
+                ];
+            $('#print').on('click',function(){
+                let textAll = ``;
+                let text = '';
+                let newText = '';
+                for(let i=0; i<arr.length; i++) {
+                    $.each(arr[i],function(key,value){
+                        let txt = `<td>${key}</td>
+                            <td>${value}</td>`;
+                        text += txt;
+                        console.log(`${key} : ${value}`);
+                        newText += `<tr>${text}</tr>`;
+                    })
+                    
+                }
+                textAll += `<table>${newText}</table>`;
+                $('#student').html(textAll);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+    <title>이벤트</title>
+    <style>
+        .dark{
+            background-color: black;
+            color : white;
+        }
+    </style>
 </head>
 <body>
+    <h1>연습문제</h1>
+    <h2>1. 야간모드</h2>
+    <button id="darkMod">야간모드</button>
+    <button id="offMod">비활성화</button>
+    <script>
+        $(function(){
+            $('#darkMod').on('click',function(){
+                $('body').toggleClass('dark');
+            });
+            $('#offMod').click(function(){
+                $('#darkMod').off('click');
+            });
+        })
+    </script>
+    <br><hr>
     <h1>on 메소드</h1>
     <div id="on_div">
         <ul>
@@ -13,7 +35,38 @@
             <li>css</li>
             <li>javascript</li>
         </ul>
+        <h3>이벤트</h3>
     </div>
-    <h3>이벤트</h3>
+    <script>
+        $(function(){
+            // $('#on_div > ul > li').on('mouseenter',function(){
+            //     console.log($(this).text());
+            // });
+            $('#on_div>ul>li').mouseenter(function(){
+                console.log($(this).text());
+            })
+
+            $('#on_div>h3').on({
+                'mouseenter' : function(){$(this).css('color','red');},
+                'mouseleave' : function(){$(this).css('color','gold');}
+            });
+        })
+    </script>
+    <h1>off 메소드</h1>
+    <button id="offBtn">이벤트</button>
+    <script>
+        $(function(){
+            let count = 0;
+            $('#offBtn').on('click',function(){
+                if(count++ < 3) {
+                    alert('버튼클릭!');
+                } else {
+                    $(this).off('click');
+                }
+                
+            })
+        })
+    </script>
+    
 </body>
 </html>

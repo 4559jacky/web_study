@@ -141,7 +141,8 @@
     <script>
         $(function(){
             $('#styleTag').on('click',function(){
-                // $(this).css('color','gold').css('fontSize','2em');
+                console.log($(this).css('color'));                 
+                $(this).css('color','gold').css('fontSize','2em');
                 $(this).css({'color':'gold','fontSize':'2em'});
             })
         })

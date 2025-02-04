@@ -28,21 +28,33 @@
 
     <h1>2. 게시판에 글쓰기</h1>
     <h2>글쓰기</h2>
-    <input type="radio" id="title1">
+    <div id="menu">
+    <input type="radio" id="title1" value="h1" name="title">
     <label for="title1">제목1</label><br>
-    <input type="radio" id="title2">
+    <input type="radio" id="title2" value="h2" name="title">
     <label for="title2">제목2</label><br>
-    <input type="radio" id="title3">
+    <input type="radio" id="title3" value="h3" name="title">
     <label for="title3">제목3</label><br>
-    <input type="radio" id="moondan">
+    <input type="radio" id="moondan" value="p" name="title">
     <label for="moondan">문단</label><br>
     <label for="text">내용</label>
     <input type="text" id="text">
-
+    </div>
+    <div id="textArea2"></div>
     <script>
         $(function(){
-            $('#text').keyup(function(){
-
+            $('#text').keyup(function(event){
+                if(event.code == 'Enter') {
+                    let txt = $(this).val();
+                    console.log(txt);
+                    let tag = $('input[type=radio]:checked').val();
+                    console.log(tag);
+                    if(tag == null) {
+                        alert('타입을 선택해주세요.');
+                    } else {
+                        $('#textArea2').append(`<${tag}>${txt}</${tag}>`);
+                    }
+                }
             });
         })
     </script>

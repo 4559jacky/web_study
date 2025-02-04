@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h2>1. 글쓰기</h2>
+    <div id="eventContainer">
+        <form name="eventFrm">
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title"><br>
+            <label for="type">종류</label>
+            <select name="type" id="type">
+                <option value="0">선택</option>
+                <option value="1">공지</option>
+                <option value="2">질문</option>
+                <option value="3">자유</option>
+            </select><br>
+            <label for="content">내용</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <span></span>
+        </form>
+    </div>
+    <script>
+        $(function(){
+            $('textarea').keydown(function(){
+                let textLength;
+                textLength = $(this).val().length;
+                console.log(textLength);
+                if(textLength < 100) {
+                    $('span').html(`${textLength}/100`);
+                } else {
+                    alert('100글자 이상 입력하실 수 없습니다.');
+                }
+            })
+        })
+        $(function(){
+            $('select').click(function(){
+                let num = $(this).val();
+                console.log(num);
+                let text;
+                switch(num) {
+                    case '1' : text = '행사명 : \n행사일 : \n장 소 : \n'; break;
+                    case '2' : text = '키워드 : \n요 약 : \n'; break;
+                    case '3' : text = ''; break;
+                    case '0' : text = ''; break;
+                }
+                $('textarea').val(text);
+                console.log(text);
+            });
+        })
+    </script>
+    <h2>2. 제곱 계산기</h2>
+    <p>2 * <span id="number">1</span> = <span id="result">2</span></p>
+    <button id="printResult">클릭</button>
+    <script>
+        $(function(){
+            let num = 1;
+            $('#printResult').click(function(){
+                console.log('해잉');
+                num = num * 2;
+                console.log(num);
+                console.log(2*num);
+                $('#number').html(`${num}`);
+                $('#result').html(`${2*num}`);
+            })
+        })
+    </script>
+</body>
+</html>

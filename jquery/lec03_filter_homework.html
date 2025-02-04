@@ -66,6 +66,7 @@
                 let textAll = ``;
                 let text = '';
                 let newText = '';
+                let textA = '';
                 for(let i=0; i<arr.length; i++) {
                     $.each(arr[i],function(key,value){
                         let txt = `<td>${key}</td>
@@ -74,8 +75,8 @@
                         console.log(`${key} : ${value}`);
                         newText += `<tr>${text}</tr>`;
                     })
-                    
                 }
+                textA += ``;
                 textAll += `<table>${newText}</table>`;
                 $('#student').html(textAll);
             })

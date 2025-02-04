@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../resources/jquery-3.7.1.js"></script>
+    <title>요소 생성 과제</title>
+</head>
+<body>
+    <h1>1. 10개까지 추가</h1>
+    <button id="addText">추가</button>
+    <div id="textArea">
+        <input type="text">
+    </div>
+    <script>
+        $(function(){
+            $('#addText').click(function(){
+                let cloneText = $('#textArea > input:first').clone(true);
+                if($('#textArea > *').length <10) {
+                    $('#textArea').append(cloneText);
+                } else {
+                    alert('10개까지만 추가할 수 있습니다.');
+                }
+                
+            })
+        })
+    </script>
+
+    <h1>2. 게시판에 글쓰기</h1>
+    <h2>글쓰기</h2>
+    <input type="radio" id="title1">
+    <label for="title1">제목1</label><br>
+    <input type="radio" id="title2">
+    <label for="title2">제목2</label><br>
+    <input type="radio" id="title3">
+    <label for="title3">제목3</label><br>
+    <input type="radio" id="moondan">
+    <label for="moondan">문단</label><br>
+    <label for="text">내용</label>
+    <input type="text" id="text">
+
+    <script>
+        $(function(){
+            
+        })
+    </script>
+
+</body>
+</html>

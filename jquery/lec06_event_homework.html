@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>이벤트 과제</title>
     <script src="../resources/jquery-3.7.1.js"></script>
 </head>
 <body>
@@ -38,7 +38,7 @@
             })
         })
         $(function(){
-            $('select').click(function(){
+            $('#type').change(function(){
                 let num = $(this).val();
                 console.log(num);
                 let text;
@@ -46,7 +46,6 @@
                     case '1' : text = '행사명 : \n행사일 : \n장 소 : \n'; break;
                     case '2' : text = '키워드 : \n요 약 : \n'; break;
                     case '3' : text = ''; break;
-                    case '0' : text = ''; break;
                 }
                 $('textarea').val(text);
                 console.log(text);

@@ -21,17 +21,17 @@
             </select><br>
             <label for="content">내용</label>
             <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            <span></span>
+            <span id="con"></span>
         </form>
     </div>
     <script>
         $(function(){
-            $('textarea').keydown(function(){
+            $('#content').keydown(function(){
                 let textLength;
                 textLength = $(this).val().length;
                 console.log(textLength);
                 if(textLength < 100) {
-                    $('span').html(`${textLength}/100`);
+                    $('#con').html(`${textLength}/100`);
                 } else {
                     alert('100글자 이상 입력하실 수 없습니다.');
                 }
@@ -49,6 +49,15 @@
                 }
                 $('textarea').val(text);
                 console.log(text);
+
+                let textLength = $('textarea').val().length;
+                console.log(textLength);
+                if(textLength < 100) {
+                    $('span').html(`${textLength}/100`);
+                } else {
+                    alert('100글자 이상 입력하실 수 없습니다.');
+                }
+
             });
         })
     </script>
@@ -65,7 +74,7 @@
                 console.log(2*num);
                 $('#number').html(`${num}`);
                 $('#result').html(`${2*num}`);
-            })
+            });
         })
     </script>
 </body>

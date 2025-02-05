@@ -47,10 +47,10 @@
                     case '2' : text = '키워드 : \n요 약 : \n'; break;
                     case '3' : text = ''; break;
                 }
-                $('textarea').val(text);
+                $('#content').val(text);
                 console.log(text);
 
-                let textLength = $('textarea').val().length;
+                let textLength = $('#content').val().length;
                 console.log(textLength);
                 if(textLength < 100) {
                     $('span').html(`${textLength}/100`);

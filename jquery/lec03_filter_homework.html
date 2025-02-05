@@ -52,7 +52,7 @@
         })
     </script>
     <hr>
-    <h3>3. 출석부</h3>
+    <h2>3. 출석부</h2>
     <button id="print">출력</button>
     <div id="student"></div>
     <script>
@@ -66,24 +66,35 @@
                 let textAll = ``;
                 let text = '';
                 let newText = '';
-                let textA = '';
                 let finalText = '';
                 for(let i=0; i<arr.length; i++) {
                     newText = '';
+                    text = '';
                     $.each(arr[i],function(key,value){
                         let txt = `<td>${key}</td>
                             <td>${value}</td>`;
                         text += txt;
                         console.log(`${key} : ${value}`);
+                        newText = `<tr>${text}</tr>`;
                     })
-                    newText += `<tr>${text}</tr>`;
                     finalText += newText;
                 }
-                textA += ``;
-                textAll += `<table>${finalText}</table>`;
-                $('#student').html(textAll);
+                textAll += `<table border="1">${finalText}</table>`;
+                $('#student').append(textAll);
             });
         })
+    </script>
+    <h2>4. 과일 가게 할인</h2>
+    
+
+    <script>
+        const products = {
+        "사과": 3000,
+        "바나나": 2000,
+        "체리": 8000,
+        "포도": 7000,
+        "수박": 5000
+        };
     </script>
 </body>
 </html>

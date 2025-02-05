@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과 과제</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+    <style>
+        #notice_div {
+            width: 300px;
+            padding: 20px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            /* display: none; 초기에는 숨김 */
+        }
+    </style>
+</head>
+<body>
+    <button id="button">공지 보기</button>
+    <div id="notice_div">
+        📢공지사항 : 서버 점검으로 인해 내일 02:00 ~ 04:00 서비스가 중단됩니다.
+    </div>
+    <script>
+        $(function(){
+            $('#button').click(function(){
+                let text = $('#button').text();
+                if(text == '공지 보기') {
+                    $('#button').text('공지 숨기기');
+                    $('div').fadeIn('slow');
+                    
+                } else {
+                    $('#button').text('공지 보기');
+                    $('div').fadeOut('slow');
+                }
+                
+            })
+        })
+    </script>
+</body>
+</html>

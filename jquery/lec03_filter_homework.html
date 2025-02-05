@@ -67,19 +67,22 @@
                 let text = '';
                 let newText = '';
                 let textA = '';
+                let finalText = '';
                 for(let i=0; i<arr.length; i++) {
+                    newText = '';
                     $.each(arr[i],function(key,value){
                         let txt = `<td>${key}</td>
                             <td>${value}</td>`;
                         text += txt;
                         console.log(`${key} : ${value}`);
-                        newText += `<tr>${text}</tr>`;
                     })
+                    newText += `<tr>${text}</tr>`;
+                    finalText += newText;
                 }
                 textA += ``;
-                textAll += `<table>${newText}</table>`;
+                textAll += `<table>${finalText}</table>`;
                 $('#student').html(textAll);
-            })
+            });
         })
     </script>
 </body>

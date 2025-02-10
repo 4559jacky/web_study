@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험 테스트</title>
+    <script src="../resources/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <p>3.</p>
+    <table border="1">
+        <tr>
+            <td>A</td>
+            <td>A</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td colspan="2">B</td>
+        </tr>
+        <tr>
+            <td colspan="3">C</td>
+        </tr>
+    </table>
+    <p>4.</p>
+    <input maxlength="5" placeholder="우편번호">
+    <p>5.</p>
+    <form action="/server/somewhere" method="post">
+    <input type="hidden" name="a" value="AA">
+    <input type="hidden" name="b" value="BB">
+    <button type="submit">전송</button>
+    </form>
+    <p>7.</p>
+    <p id="hello">안녕하세요.</p>
+    <style>
+        #hello{
+            font-size : 10px;
+            font-color : red;
+        }
+    </style>
+    <p>8.</p>
+    <div class="wrap">
+        <div class="box">헤이</div>
+    </div>
+    <style>
+        .wrap{
+            border : 1px solid red;
+        }
+        .wrap > .box{
+            border : 1px solid gray;
+            padding : 5px;
+            margin : 3px 70px;
+            width:100px;
+            height:100px;
+        }
+    </style>
+    <p>9.</p>
+    <div id="nine">마루킁킁</div>
+    <style>
+        #nine{
+            /* display : none; */
+        }
+    </style>
+    <p>11.</p>
+    <div id="maru" style="background-image: url('../resources/sponge.png');">
+        앵
+    </div>
+    <style>
+        #maru{
+            background-image: url('../resources/sponge.png');
+            background-size: 100% 100%;
+        }
+    </style>
+    <p>12.</p>
+    <script>
+        console.log('===12===');
+        console.log(number1);
+        var number1;
+        var number2 = 10;
+        var number2 = 11;
+        console.log(number1 == null);
+        console.log(number1);
+        console.log(number2);
+        console.log(number1 + number2);
+        console.log('===12 end===');
+    </script>
+    <p>13.</p>
+    <script>
+        // if(1 === "1") {
+        //     console.log('true');
+        // } else {
+        //     console.log('false');
+        // }
+        console.log(1==="1");
+        console.log('1'+1);
+        console.log(!'hello');
+        console.log(1 == true ? 'abc' : 'xyz');
+    </script>
+    <p>14.</p>
+    <script>
+        var a = 10;
+        abc();
+        function abc() {
+            console.log(a);
+        }
+        abc();
+    </script>
+    <p>15.</p>
+    <script>
+        var person = {
+        name: 'abc',
+        age: 30,
+        married: true,
+        friends: ['ijk', 'xyz'],
+        home: {address: 'seoul'}
+        }
+        console.log(person.name);
+        console.log(person.age);
+        console.log(person['married']);
+        console.log(person['home']);
+    </script>
+    <p>16.</p>
+    <div class="wrap">
+    <div class="inner">
+    <h1 id="title" class="title">제목</h1>
+    </div>
+    </div>
+    <script>
+        console.log(document.getElementsByTagName('h1'));
+        console.log(document.getElementsByClassName('title')[0]);
+        console.log(document.getElementById('title'));
+        console.log(document.querySelector('.inner > .title'));
+    </script>
+    <p>21.</p>
+    <select id="city" name="city">
+    <option value="인천">인천</option>
+    <option value="서울" selected>서울</option>
+    <option value="부산">부산</option>
+    </select>
+    <p>23.</p>
+    <div id="div1">
+    <div id="div2">앵</div>
+    </div>
+    <style>
+        #div1{
+            border : 2px solid skyblue;
+        }
+        #div2{
+            padding: 20px 20px 20px 30px;
+            border : 2px solid crimson;
+        }
+        /* 1.위 2.오른쪽 3.아래 4.왼쪽 */
+    </style>
+    <p>24.</p>
+    <ul>
+        <li class="odd">1</li>
+        <li>2</li>
+        <li class="odd">3</li>
+        <li>4</li>
+        <li class="odd">5</li>
+    </ul>
+    <script>
+        var selectedItem = document.querySelectorAll("li.odd"); // 클래스가 "odd"인 요소 중에서 <li> 요소만을 선택함.
+        for (var i = 0; i < selectedItem.length; i++) {
+        selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경함.
+        }
+    </script>
+    <p>25.</p>
+    <p id="p">일반적인 문자열 속에 <b>볼드 처리된 문자</b> 가 섞여 있는 내용</p>
+    <script>
+        let txt = $('#p').text();
+        console.log(txt);
+    </script>
+    <br><br><br><br><br>
+
+</body>
+</html>
